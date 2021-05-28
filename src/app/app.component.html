@@ -1,7 +1,6 @@
 <div class="gc-kendo-grid">
-  <kendo-grid [data]="gridView" [height]="410" [sortable]="true" [sort]="sort" [sortable]="{
-      mode: 'multiple'
-    }" (sortChange)="sortChange($event)">
+  <kendo-grid [data]="puestos" [height]="410" [sortable]="true" [sort]="sort" [sortable]="{ mode: 'multiple'}"
+    [pageSize]="pageSize" [skip]="skip" [pageable]="true" (sortChange)="sortChange($event)" *ngIf="puestos">
     <kendo-grid-column field="puestoId" title="Cód." [width]="100" [headerClass]="{ 'gc-headerColor': true }">
     </kendo-grid-column>
     <kendo-grid-column field="puestoIdOficial" title="Código oficial" [width]="100">
