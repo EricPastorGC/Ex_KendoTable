@@ -1,17 +1,38 @@
-<kendo-grid [data]="gridData" [height]="410">
-  <kendo-grid-column field="ProductID" title="ID" [width]="40">
-  </kendo-grid-column>
-  <kendo-grid-column field="ProductName" title="Name" [width]="250">
-  </kendo-grid-column>
-  <kendo-grid-column field="Category.CategoryName" title="Category">
-  </kendo-grid-column>
-  <kendo-grid-column field="UnitPrice" title="Price" [width]="80">
-  </kendo-grid-column>
-  <kendo-grid-column field="UnitsInStock" title="In stock" [width]="80">
-  </kendo-grid-column>
-  <kendo-grid-column field="Discontinued" title="Discontinued" [width]="120">
-    <ng-template kendoGridCellTemplate let-dataItem>
+<div class="gc-kendo-grid">
+  <kendo-grid [data]="gridView" [height]="410" [sortable]="true" [sort]="sort" [sortable]="{
+      mode: 'multiple'
+    }" (sortChange)="sortChange($event)">
+    <kendo-grid-column field="puestoId" title="Cód." [width]="100" [headerClass]="{ 'gc-headerColor': true }">
+    </kendo-grid-column>
+    <kendo-grid-column field="puestoIdOficial" title="Código oficial" [width]="100">
+    </kendo-grid-column>
+    <kendo-grid-column field="tipoVinculo.nombre" title="TP" [width]="100">
+    </kendo-grid-column>
+    <kendo-grid-column field="puestoTipo.nombre" title="Denominación" [width]="200">
+    </kendo-grid-column>
+    <kendo-grid-column field="catalogo.nombre" title="Catálogo" [width]="200">
+    </kendo-grid-column>
+    <kendo-grid-column field="adscripcion.nombre" title="Adscripción administración" [width]="200">
+    </kendo-grid-column>
+    <kendo-grid-column field="grupo1Id" title="G1" [width]="80">
+    </kendo-grid-column>
+    <kendo-grid-column field="grupo2Id" title="G2" [width]="80">
+    </kendo-grid-column>
+    <kendo-grid-column field="escala.nombre" title="Escala" [width]="400">
+    </kendo-grid-column>
+    <kendo-grid-column field="escala.nombre" title="Escala" [width]="400">
+    </kendo-grid-column>
+    <kendo-grid-column field="escala.nombre" title="Escala" [width]="400">
+    </kendo-grid-column>
+    <kendo-grid-column field="escala.nombre" title="Escala" [width]="400">
+    </kendo-grid-column>
+    <kendo-grid-column field="escala.nombre" title="Escala" [width]="400">
+    </kendo-grid-column>
+    <kendo-grid-column field="escala.nombre" title="Escala" [width]="400">
+    </kendo-grid-column>
+
+    <!--<ng-template kendoGridCellTemplate let-dataItem>
       <input type="checkbox" [checked]="dataItem.Discontinued" disabled />
-    </ng-template>
-  </kendo-grid-column>
-</kendo-grid>
+    </ng-template>-->
+  </kendo-grid>
+</div>
