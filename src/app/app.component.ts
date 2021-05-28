@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { SortDescriptor, orderBy, State, DataResult, process } from '@progress/kendo-data-query';
-import { GridDataResult, PageChangeEvent } from "@progress/kendo-angular-grid";
-//import * as data from './puestos.json';
+import { SortDescriptor, orderBy, State, DataResult, process, CompositeFilterDescriptor } from '@progress/kendo-data-query';
+import { GridComponent, DataStateChangeEvent, GridDataResult, PageChangeEvent } from "@progress/kendo-angular-grid";
 import { Observable, Subscription } from 'rxjs';
 import { ApiService } from './_services/api.service';
+import { ThisReceiver } from '@angular/compiler';
 
 const gridInitialState: State = {
   skip: 0,
@@ -35,8 +35,10 @@ export class AppComponent implements OnInit {
   public pageSize = 10;
   public skip = 0;
   public take = 0;
-  public pageSizes = true;
-  public previousNext = true;
+  public filter: CompositeFilterDescriptor = {
+    logic: 'and',
+    filters: []
+  }
 
   public sort: SortDescriptor[] = [
     {
@@ -44,11 +46,6 @@ export class AppComponent implements OnInit {
       dir: "asc",
     },
   ];
-
-  public state: State = {
-    skip: 0,
-    take: 15,
-  };
 
   public gridView: GridDataResult = {
     data: [],
@@ -73,7 +70,7 @@ export class AppComponent implements OnInit {
     this.loadData();
   }
 
-  public dataStateChange(state: State): void {
+  public dataStateChange(state: DataStateChangeEvent): void {
     this.gridCurrentState = state;
     this.loadData();
   }
