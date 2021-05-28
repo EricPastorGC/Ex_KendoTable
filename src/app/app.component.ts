@@ -1,15 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-import { SortDescriptor, orderBy } from '@progress/kendo-data-query';
+import { SortDescriptor, orderBy, State, DataResult, process } from '@progress/kendo-data-query';
 import { GridDataResult, PageChangeEvent } from "@progress/kendo-angular-grid";
 //import * as data from './puestos.json';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { ApiService } from './_services/api.service';
 
-
-const dataState = {
-  sort: [{ field: "puestoId", dir: "asc" }],
-  take: 10,
-  skip: 0
+const gridInitialState: State = {
+  skip: 0,
+  take: 20,
+  sort: [
+    {
+      field: 'puestoId',
+      dir: 'asc'
+    }
+  ],
+  filter: {
+    logic: 'and',
+    filters: []
+  },
+  group: []
 };
 
 @Component({
@@ -18,23 +27,16 @@ const dataState = {
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+  public gridCurrentState: State = gridInitialState;
+
   puestos: any = [];
 
   public multiple = false;
-
-  state = {
-    dataState: dataState
-  };
-
-
-  //public gridData: any[] = (data as any).default;
-
-  //public view: Observable<GridDataResult>;
-
   public pageSize = 10;
   public skip = 0;
   public take = 0;
-
+  public pageSizes = true;
+  public previousNext = true;
 
   public sort: SortDescriptor[] = [
     {
@@ -42,6 +44,11 @@ export class AppComponent implements OnInit {
       dir: "asc",
     },
   ];
+
+  public state: State = {
+    skip: 0,
+    take: 15,
+  };
 
   public gridView: GridDataResult = {
     data: [],
@@ -60,15 +67,21 @@ export class AppComponent implements OnInit {
     this.loadData();
   }
 
-  protected pageChange({ skip, take }: PageChangeEvent): void {
-    //this.skip = event.skip;
-    this.pageSize = take;
+  public pageChange(event: PageChangeEvent): void {
+    this.skip = event.skip;
+    this.pageSize = event.take;
     this.loadData();
   }
 
-  private loadData() {
-    return this.apiService.getData().subscribe((data: {}) => {
+  public dataStateChange(state: State): void {
+    this.gridCurrentState = state;
+    this.loadData();
+  }
+
+  private loadData(): void {
+    this.apiService.getData().subscribe((data: {}) => {
       this.puestos = data;
-    })
+      this.gridView = process(this.puestos, this.gridCurrentState)
+    });
   }
 }
