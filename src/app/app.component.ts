@@ -6,7 +6,7 @@ import { ApiService } from './_services/api.service';
 
 const gridInitialState: State = {
   skip: 0,
-  take: 20,
+  take: 10,
   sort: [
     {
       field: 'puestoId',
@@ -35,6 +35,9 @@ export class AppComponent implements OnInit {
   public pageSize = 10;
   public skip = 0;
   public take = 0;
+  public search = false;
+  public value = '';
+  public groupable = false;
   public filter: CompositeFilterDescriptor = {
     logic: 'and',
     filters: []
@@ -85,5 +88,15 @@ export class AppComponent implements OnInit {
       this.puestos = data;
       this.gridView = process(this.puestos, this.gridCurrentState)
     });
+  }
+
+  public showGroupable(): void {
+    this.groupable = !this.groupable;
+    this.loadData();
+  }
+
+  public showSearch(): void {
+    this.search = !this.search;
+    this.loadData();
   }
 }
