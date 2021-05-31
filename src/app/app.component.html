@@ -1,7 +1,8 @@
 <div class="gc-kendo-grid">
-  <kendo-grid [data]="gridView" [pageSize]="pageSize" [skip]="skip" [sort]="sort" [filter]="filter"
-    [sortable]="{ mode: 'multiple'}" [pageable]="true" filterable="menu" (dataStateChange)="dataStateChange($event)"
-    (sortChange)="sortChange($event)" (pageChange)="pageChange($event)">
+  <kendo-grid [data]="gridView" [resizable]="true" [pageSize]="pageSize" [skip]="skip" [sort]="sort" [filter]="filter"
+    [sortable]="{ mode: 'multiple'}" [pageable]="true" filterable="menu" [groupable]="true" [group]="group"
+    (groupChange)="groupChange($event)" (dataStateChange)="dataStateChange($event)" (sortChange)="sortChange($event)"
+    (pageChange)="pageChange($event)">
     <kendo-grid-column field="puestoId" title="Cód." [width]="100" [headerClass]="{ 'gc-headerColor': true }">
     </kendo-grid-column>
     <kendo-grid-column field="puestoIdOficial" title="Código oficial" [width]="100">

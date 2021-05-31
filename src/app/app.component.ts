@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { SortDescriptor, orderBy, State, DataResult, process, CompositeFilterDescriptor } from '@progress/kendo-data-query';
+import { SortDescriptor, orderBy, State, DataResult, process, CompositeFilterDescriptor, GroupDescriptor } from '@progress/kendo-data-query';
 import { GridComponent, DataStateChangeEvent, GridDataResult, PageChangeEvent } from "@progress/kendo-angular-grid";
 import { Observable, Subscription } from 'rxjs';
 import { ApiService } from './_services/api.service';
-import { ThisReceiver } from '@angular/compiler';
 
 const gridInitialState: State = {
   skip: 0,
@@ -31,6 +30,7 @@ export class AppComponent implements OnInit {
 
   puestos: any = [];
 
+  public group: GroupDescriptor[] = [];
   public multiple = false;
   public pageSize = 10;
   public skip = 0;
@@ -72,6 +72,11 @@ export class AppComponent implements OnInit {
 
   public dataStateChange(state: DataStateChangeEvent): void {
     this.gridCurrentState = state;
+    this.loadData();
+  }
+
+  public groupChange(groups: GroupDescriptor[]): void {
+    this.group = groups;
     this.loadData();
   }
 
