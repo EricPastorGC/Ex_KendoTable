@@ -1,9 +1,9 @@
 <div class="gc-kendo-grid">
-  <kendo-grid [data]="gridView" [height]="500" [resizable]="true" [pageSize]="pageSize" [skip]="skip" [sort]="sort"
-    [filter]="filter" [sortable]="{ mode: 'multiple'}" [pageable]="true" filterable="menu" [groupable]="groupable"
-    [group]="group" [columnMenu]="{filter: {expanded: true}, columnChooser: false  }"
-    (groupChange)="groupChange($event)" (dataStateChange)="dataStateChange($event)" (sortChange)="sortChange($event)"
-    (pageChange)="pageChange($event)">
+  <kendo-grid [data]="gridView" [height]="500" [resizable]="true" [pageSize]="pageSize" [skip]="gridCurrentState.skip"
+    [sort]="gridCurrentState.sort" [filter]="gridCurrentState.filter" [sortable]="{ mode: 'multiple'}" [pageable]="true"
+    filterable="menu" [groupable]="groupable" [group]="gridCurrentState.group"
+    [columnMenu]="{filter: {expanded: true}, columnChooser: false  }" (groupChange)="groupChange($event)"
+    (dataStateChange)="dataStateChange($event)" (sortChange)="sortChange($event)" (pageChange)="pageChange($event)">
     <ng-template kendoGridToolbarTemplate>
       <kendo-grid-spacer></kendo-grid-spacer>
       <div (click)="showSearch()" class="k-button k-bare">
@@ -36,14 +36,14 @@
     </kendo-grid-column>
     <kendo-grid-column field="escala.nombre" title="Escala" [width]="400">
     </kendo-grid-column>
-    <kendo-grid-column type="checkbox" field="disponibilidadPlena" title="Disponibilidad" [width]="80">
+    <kendo-grid-column type="checkbox" field="disponibilidadPlena" title="Disponibilidad" [width]="80" filter="boolean">
       <ng-template kendoGridCellTemplate let-dataItem>
         <input type="checkbox" [checked]="dataItem.disponibilidadPlena" disabled />
       </ng-template>
     </kendo-grid-column>
-    <kendo-grid-column field="fechaVigenciaInicio" title="Inicio Fecha Vigencia" [width]="400">
-      <ng-template let-dataItem>
-        {{dataItem.fechaVigenciaInicio | date: 'shortDate'}}
+    <kendo-grid-column field="fechaVigenciaInicio" title="Inicio Fecha Vigencia" [width]="400" filter="date">
+      <ng-template kendoGridCellTemplate let-dataItem>
+        {{dataItem.fechaVigenciaInicio | date}}
       </ng-template>
     </kendo-grid-column>
     <kendo-grid-column field="escala.nombre" title="Escala" [width]="400">
@@ -53,6 +53,5 @@
     <kendo-grid-column field="escala.nombre" title="Escala" [width]="400">
     </kendo-grid-column>
     <kendo-grid-excel fileName="Puestos.xlsx"></kendo-grid-excel>
-
   </kendo-grid>
 </div>

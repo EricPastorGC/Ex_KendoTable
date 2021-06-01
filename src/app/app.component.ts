@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { SortDescriptor, orderBy, State, DataResult, process, CompositeFilterDescriptor, GroupDescriptor } from '@progress/kendo-data-query';
-import { GridComponent, DataStateChangeEvent, GridDataResult, PageChangeEvent } from "@progress/kendo-angular-grid";
+import { GridComponent, DataStateChangeEvent, GridDataResult, PageChangeEvent, DataBindingDirective } from "@progress/kendo-angular-grid";
 import { Observable, Subscription } from 'rxjs';
 import { ApiService } from './_services/api.service';
+import { Puesto } from './puestos';
+import { map } from 'rxjs/operators';
 
 const gridInitialState: State = {
   skip: 0,
@@ -28,7 +30,9 @@ const gridInitialState: State = {
 export class AppComponent implements OnInit {
   public gridCurrentState: State = gridInitialState;
 
-  puestos: any = [];
+  //public puestos: any;
+
+  private puestos: Puesto[];
 
   public group: GroupDescriptor[] = [];
   public multiple = false;
@@ -38,10 +42,9 @@ export class AppComponent implements OnInit {
   public search = false;
   public value = '';
   public groupable = false;
-  public filter: CompositeFilterDescriptor = {
-    logic: 'and',
-    filters: []
-  }
+
+  private subscriptions$: Subscription = new Subscription();
+
 
   public sort: SortDescriptor[] = [
     {
@@ -50,10 +53,7 @@ export class AppComponent implements OnInit {
     },
   ];
 
-  public gridView: GridDataResult = {
-    data: [],
-    total: 0
-  };
+  public gridView: GridDataResult;
 
   constructor(public apiService: ApiService) { }
 
@@ -84,9 +84,9 @@ export class AppComponent implements OnInit {
   }
 
   private loadData(): void {
-    this.apiService.getData().subscribe((data: {}) => {
+    this.apiService.getData().subscribe((data: Puesto[]) => {
       this.puestos = data;
-      this.gridView = process(this.puestos, this.gridCurrentState)
+      this.gridView = process(this.puestos, this.gridCurrentState);
     });
   }
 
@@ -98,5 +98,42 @@ export class AppComponent implements OnInit {
   public showSearch(): void {
     this.search = !this.search;
     this.loadData();
+  }
+
+  public onFilter(inputValue: string): void {
+    this.gridView = process(this.puestos, {
+      filter: {
+        logic: "or",
+        filters: [
+          {
+            field: "puestoId",
+            operator: "contains",
+            value: inputValue,
+          },
+          /*{
+            field: "job_title",
+            operator: "contains",
+            value: inputValue,
+          },
+          {
+            field: "budget",
+            operator: "contains",
+            value: inputValue,
+          },
+          {
+            field: "phone",
+            operator: "contains",
+            value: inputValue,
+          },
+          {
+            field: "address",
+            operator: "contains",
+            value: inputValue,
+          },*/
+        ],
+      },
+    });
+
+
   }
 }
