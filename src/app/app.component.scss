@@ -1,3 +1,7 @@
+@import "~@progress/kendo-theme-material/scss/button";
+.k-button.k-bare {
+    color: $button-text;
+  }
 
 body { 
     font-family: "RobotoRegular",Helvetica,Arial,sans-serif; font-size: 14px; margin: 0; 

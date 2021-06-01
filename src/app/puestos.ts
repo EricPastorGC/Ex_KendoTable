@@ -8,4 +8,6 @@ export interface Puestos {
     grupo1Id: string;
     grupo2Id: string;
     escala: string;
+    disponibilidadPlena: boolean;
+    fechaVigenciaInicio: Date;
 }

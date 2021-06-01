@@ -6,14 +6,14 @@
     (pageChange)="pageChange($event)">
     <ng-template kendoGridToolbarTemplate>
       <kendo-grid-spacer></kendo-grid-spacer>
-      <div (click)="showSearch()" fxShow="false" fxShow.gt-xs class="k-button k-button-icon k-bare">
-        <span class="k-icon k-i-search gc-i-top" matTooltip="Buscar puestos"></span>
+      <div (click)="showSearch()" class="k-button k-bare">
+        <span class="k-icon k-i-search" matTooltip="Buscar puestos"></span>
       </div>
-      <div (click)="showGroupable()" fxShow="false" fxShow.gt-xs class="k-button k-button-icon k-bare">
+      <div (click)="showGroupable()" class="k-button k-bare">
         <span class="k-icon k-i-aggregate-fields" *ngIf="!groupable" matTooltip="Mostrar agrupar columnas"></span>
         <span class="k-icon k-i-align-remove" *ngIf="groupable" matTooltip="Desactivar agrupar columnas"></span>
       </div>
-      <div kendoGridExcelCommand fxShow="false" fxShow.gt-xs class="k-button k-button-icon k-bare">
+      <div kendoGridExcelCommand class="k-button k-bare">
         <span class="k-icon k-i-download" matTooltip="Descargar excel"></span>
       </div>
       <kendo-grid-column-chooser matTooltip="Mostrar columnas"></kendo-grid-column-chooser>
@@ -36,9 +36,15 @@
     </kendo-grid-column>
     <kendo-grid-column field="escala.nombre" title="Escala" [width]="400">
     </kendo-grid-column>
-    <kendo-grid-column field="escala.nombre" title="Escala" [width]="400">
+    <kendo-grid-column type="checkbox" field="disponibilidadPlena" title="Disponibilidad" [width]="80">
+      <ng-template kendoGridCellTemplate let-dataItem>
+        <input type="checkbox" [checked]="dataItem.disponibilidadPlena" disabled />
+      </ng-template>
     </kendo-grid-column>
-    <kendo-grid-column field="escala.nombre" title="Escala" [width]="400">
+    <kendo-grid-column field="fechaVigenciaInicio" title="Inicio Fecha Vigencia" [width]="400">
+      <ng-template let-dataItem>
+        {{dataItem.fechaVigenciaInicio | date: 'shortDate'}}
+      </ng-template>
     </kendo-grid-column>
     <kendo-grid-column field="escala.nombre" title="Escala" [width]="400">
     </kendo-grid-column>
@@ -48,8 +54,5 @@
     </kendo-grid-column>
     <kendo-grid-excel fileName="Puestos.xlsx"></kendo-grid-excel>
 
-    <!--<ng-template kendoGridCellTemplate let-dataItem>
-      <input type="checkbox" [checked]="dataItem.Discontinued" disabled />
-    </ng-template>-->
   </kendo-grid>
 </div>
