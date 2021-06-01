@@ -6,20 +6,19 @@
     (pageChange)="pageChange($event)">
     <ng-template kendoGridToolbarTemplate>
       <kendo-grid-spacer></kendo-grid-spacer>
-      <div (click)="showSearch()" fxShow="false" fxShow.gt-xs class="k-button k-bare k-button-icon gc-menu-lateral">
+      <div (click)="showSearch()" fxShow="false" fxShow.gt-xs class="k-button k-button-icon k-bare">
         <span class="k-icon k-i-search gc-i-top" matTooltip="Buscar puestos"></span>
       </div>
-      <div (click)="showGroupable()" fxShow="false" fxShow.gt-xs class="k-button k-bare k-button-icon gc-menu-lateral">
-        <span class="k-icon k-i-aggregate-fields gc-i-top" *ngIf="!groupable"
-          matTooltip="Mostrar agrupar columnas"></span>
+      <div (click)="showGroupable()" fxShow="false" fxShow.gt-xs class="k-button k-button-icon k-bare">
+        <span class="k-icon k-i-aggregate-fields" *ngIf="!groupable" matTooltip="Mostrar agrupar columnas"></span>
         <span class="k-icon k-i-align-remove" *ngIf="groupable" matTooltip="Desactivar agrupar columnas"></span>
       </div>
-      <div kendoGridExcelCommand fxShow="false" fxShow.gt-xs class="k-button k-bare k-button-icon gc-menu-lateral">
+      <div kendoGridExcelCommand fxShow="false" fxShow.gt-xs class="k-button k-button-icon k-bare">
         <span class="k-icon k-i-download" matTooltip="Descargar excel"></span>
       </div>
       <kendo-grid-column-chooser matTooltip="Mostrar columnas"></kendo-grid-column-chooser>
     </ng-template>
-    <kendo-grid-column field="puestoId" title="Cód." [width]="100" [headerClass]="{ 'gc-headerColor': true }">
+    <kendo-grid-column field="puestoId" title="Cód." [width]="100">
     </kendo-grid-column>
     <kendo-grid-column field="puestoIdOficial" title="Código oficial" [width]="100">
     </kendo-grid-column>
