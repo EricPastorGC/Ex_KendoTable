@@ -4,7 +4,7 @@
     filterable="menu" [groupable]="groupable" [group]="gridCurrentState.group"
     [columnMenu]="{filter: {expanded: true}, columnChooser: false  }" (groupChange)="groupChange($event)"
     (dataStateChange)="dataStateChange($event)" (sortChange)="sortChange($event)" (pageChange)="pageChange($event)"
-    (add)="addHandler($event)">
+    (add)="addHandler($event)" (save)="saveHandler($event)" (cancel)="cancelHandler($event)">
     <kendo-grid-messages [filter]="'Filtro'" [filterAfterOperator]="'Es superior a'"
       [filterAfterOrEqualOperator]="'Es superior a'" [filterAndLogic]="'Y'" [filterBeforeOperator]="'Es anterior a'"
       [filterBeforeOrEqualOperator]="'Es anterior o igual a'" [filterBooleanAll]="'Todo'"

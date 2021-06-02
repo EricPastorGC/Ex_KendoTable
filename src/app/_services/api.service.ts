@@ -5,7 +5,7 @@ import { Puesto } from '../puestos';
 import { map } from 'rxjs/operators';
 import { ItemTemplateDirective } from '@progress/kendo-angular-dropdowns';
 
-const localUrl = '../assets/data/puestos.json';
+const localUrl = 'http://localhost:3000/posts';
 
 @Injectable({
   providedIn: 'root'
@@ -31,5 +31,9 @@ export class ApiService {
         )
       )
     );
+  }
+
+  postData(item: Puesto): Observable<Puesto> {
+    return this.http.post<Puesto>(localUrl, item);
   }
 }

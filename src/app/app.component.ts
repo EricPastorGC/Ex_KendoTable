@@ -4,7 +4,6 @@ import { DataStateChangeEvent, GridDataResult, PageChangeEvent } from "@progress
 import { ApiService } from './_services/api.service';
 import { Puesto } from './puestos';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { EditService } from './edit.service';
 
 const gridInitialState: State = {
   skip: 0,
@@ -45,12 +44,10 @@ export class AppComponent implements OnInit {
   public gridView: GridDataResult;
 
   public formGroup: FormGroup;
-  private editService: EditService;
   private editedRowIndex: number;
 
-  constructor(@Inject(EditService) editServiceFactory: Puesto)
-    /*public apiService: ApiService,
-    private formBuilder: FormBuilder,*/ { this.editService = editServiceFactory(); }
+  constructor(public apiService: ApiService,
+    private formBuilder: FormBuilder) { }
 
   ngOnInit() {
     this.loadData();
@@ -160,7 +157,6 @@ export class AppComponent implements OnInit {
       escalaNombre: new FormControl(),
       disponibilidadPlena: new FormControl(),
       fechaVigenciaInicio: new FormControl(),
-      Discontinued: new FormControl(false),
     });
 
     sender.addRow(this.formGroup);
@@ -169,7 +165,7 @@ export class AppComponent implements OnInit {
   public saveHandler({ sender, rowIndex, formGroup, isNew }) {
     const puesto: Puesto = formGroup.value;
 
-    this.editService.save(puesto, isNew);
+    if (isNew) this.apiService.postData(puesto).subscribe();
 
     sender.closeRow(rowIndex);
   }
@@ -180,5 +176,7 @@ export class AppComponent implements OnInit {
     this.formGroup = undefined;
   }
 
-
+  public cancelHandler({ sender, rowIndex }) {
+    sender.closeRow(rowIndex)
+  }
 }
