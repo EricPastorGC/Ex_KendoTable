@@ -6,6 +6,8 @@
     (dataStateChange)="dataStateChange($event)" (sortChange)="sortChange($event)" (pageChange)="pageChange($event)">
     <ng-template kendoGridToolbarTemplate>
       <kendo-grid-spacer></kendo-grid-spacer>
+      <input type="text" *ngIf="search" placeholder="Buscar puesto..." kendoTextBox
+        (input)="onFilter($event.target.value)">
       <div (click)="showSearch()" class="k-button k-bare">
         <span class="k-icon k-i-search" matTooltip="Buscar puestos"></span>
       </div>

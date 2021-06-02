@@ -25,8 +25,8 @@ export class ApiService {
       map((data: Puesto[]) =>
         data.map(
           (item: Puesto) =>
-            new Puesto(item.puestoId, item.puestoIdOficial, item.tipoVinculoNombre, item.puestoTipoNombre,
-              item.catalogoNombre, item.adscripcionNombre, item.grupo1Id, item.grupo2Id, item.escala,
+            new Puesto(item.puestoId, item.puestoIdOficial, item.tipoVinculo, item.puestoTipo,
+              item.catalogo, item.adscripcion, item.grupo1Id, item.grupo2Id, item.escala,
               item.disponibilidadPlena, new Date(item.fechaVigenciaInicio))
         )
       )

@@ -1,10 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { SortDescriptor, orderBy, State, DataResult, process, CompositeFilterDescriptor, GroupDescriptor } from '@progress/kendo-data-query';
-import { GridComponent, DataStateChangeEvent, GridDataResult, PageChangeEvent, DataBindingDirective } from "@progress/kendo-angular-grid";
-import { Observable, Subscription } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { SortDescriptor, State, process, GroupDescriptor } from '@progress/kendo-data-query';
+import { DataStateChangeEvent, GridDataResult, PageChangeEvent } from "@progress/kendo-angular-grid";
 import { ApiService } from './_services/api.service';
 import { Puesto } from './puestos';
-import { map } from 'rxjs/operators';
 
 const gridInitialState: State = {
   skip: 0,
@@ -30,28 +28,14 @@ const gridInitialState: State = {
 export class AppComponent implements OnInit {
   public gridCurrentState: State = gridInitialState;
 
-  //public puestos: any;
-
   private puestos: Puesto[];
 
-  public group: GroupDescriptor[] = [];
   public multiple = false;
   public pageSize = 10;
-  public skip = 0;
   public take = 0;
   public search = false;
   public value = '';
   public groupable = false;
-
-  private subscriptions$: Subscription = new Subscription();
-
-
-  public sort: SortDescriptor[] = [
-    {
-      field: "puestoId",
-      dir: "asc",
-    },
-  ];
 
   public gridView: GridDataResult;
 
@@ -63,14 +47,12 @@ export class AppComponent implements OnInit {
 
 
   public sortChange(sort: SortDescriptor[]): void {
-    this.sort = sort;
-    this.loadData();
+    this.gridCurrentState.sort = sort;
   }
 
   public pageChange(event: PageChangeEvent): void {
-    this.skip = event.skip;
+    this.gridCurrentState.skip = event.skip;
     this.pageSize = event.take;
-    this.loadData();
   }
 
   public dataStateChange(state: DataStateChangeEvent): void {
@@ -79,8 +61,7 @@ export class AppComponent implements OnInit {
   }
 
   public groupChange(groups: GroupDescriptor[]): void {
-    this.group = groups;
-    this.loadData();
+    this.gridCurrentState.group = groups;
   }
 
   private loadData(): void {
@@ -92,12 +73,10 @@ export class AppComponent implements OnInit {
 
   public showGroupable(): void {
     this.groupable = !this.groupable;
-    this.loadData();
   }
 
   public showSearch(): void {
     this.search = !this.search;
-    this.loadData();
   }
 
   public onFilter(inputValue: string): void {
@@ -110,30 +89,48 @@ export class AppComponent implements OnInit {
             operator: "contains",
             value: inputValue,
           },
-          /*{
-            field: "job_title",
+          {
+            field: "puestoIdOficial",
             operator: "contains",
             value: inputValue,
           },
           {
-            field: "budget",
+            field: "tipoVinculo.nombre",
             operator: "contains",
             value: inputValue,
           },
           {
-            field: "phone",
+            field: "puestoTipo.nombre",
             operator: "contains",
             value: inputValue,
           },
           {
-            field: "address",
+            field: "catalogo.nombre",
             operator: "contains",
             value: inputValue,
-          },*/
+          },
+          {
+            field: "adscripcion.nombre",
+            operator: "contains",
+            value: inputValue,
+          },
+          {
+            field: "grupo1Id",
+            operator: "contains",
+            value: inputValue,
+          },
+          {
+            field: "grupo2Id",
+            operator: "contains",
+            value: inputValue,
+          },
+          {
+            field: "escala.nombre",
+            operator: "contains",
+            value: inputValue,
+          },
         ],
       },
     });
-
-
   }
 }
