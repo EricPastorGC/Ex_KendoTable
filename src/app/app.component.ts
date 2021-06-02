@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { SortDescriptor, State, process, GroupDescriptor } from '@progress/kendo-data-query';
 import { DataStateChangeEvent, GridDataResult, PageChangeEvent } from "@progress/kendo-angular-grid";
 import { ApiService } from './_services/api.service';
 import { Puesto } from './puestos';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { EditService } from './edit.service';
 
 const gridInitialState: State = {
   skip: 0,
@@ -42,7 +44,13 @@ export class AppComponent implements OnInit {
 
   public gridView: GridDataResult;
 
-  constructor(public apiService: ApiService) { }
+  public formGroup: FormGroup;
+  private editService: EditService;
+  private editedRowIndex: number;
+
+  constructor(@Inject(EditService) editServiceFactory: Puesto)
+    /*public apiService: ApiService,
+    private formBuilder: FormBuilder,*/ { this.editService = editServiceFactory(); }
 
   ngOnInit() {
     this.loadData();
@@ -136,4 +144,41 @@ export class AppComponent implements OnInit {
       },
     });
   }
+
+  public addHandler({ sender }) {
+    this.closeEditor(sender);
+
+    this.formGroup = new FormGroup({
+      puestoId: new FormControl(),
+      puestoIdOficial: new FormControl(),
+      tipoVinculoNombre: new FormControl(),
+      puestoTipoNombre: new FormControl(),
+      catalogoNombre: new FormControl(),
+      adscripcionNombre: new FormControl(),
+      grupo1Id: new FormControl(),
+      grupo2Id: new FormControl(),
+      escalaNombre: new FormControl(),
+      disponibilidadPlena: new FormControl(),
+      fechaVigenciaInicio: new FormControl(),
+      Discontinued: new FormControl(false),
+    });
+
+    sender.addRow(this.formGroup);
+  }
+
+  public saveHandler({ sender, rowIndex, formGroup, isNew }) {
+    const puesto: Puesto = formGroup.value;
+
+    this.editService.save(puesto, isNew);
+
+    sender.closeRow(rowIndex);
+  }
+
+  private closeEditor(grid, rowIndex = this.editedRowIndex) {
+    grid.closeRow(rowIndex);
+    this.editedRowIndex = undefined;
+    this.formGroup = undefined;
+  }
+
+
 }

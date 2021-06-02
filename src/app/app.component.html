@@ -3,7 +3,8 @@
     [sort]="gridCurrentState.sort" [filter]="gridCurrentState.filter" [sortable]="{ mode: 'multiple'}" [pageable]="true"
     filterable="menu" [groupable]="groupable" [group]="gridCurrentState.group"
     [columnMenu]="{filter: {expanded: true}, columnChooser: false  }" (groupChange)="groupChange($event)"
-    (dataStateChange)="dataStateChange($event)" (sortChange)="sortChange($event)" (pageChange)="pageChange($event)">
+    (dataStateChange)="dataStateChange($event)" (sortChange)="sortChange($event)" (pageChange)="pageChange($event)"
+    (add)="addHandler($event)">
     <kendo-grid-messages [filter]="'Filtro'" [filterAfterOperator]="'Es superior a'"
       [filterAfterOrEqualOperator]="'Es superior a'" [filterAndLogic]="'Y'" [filterBeforeOperator]="'Es anterior a'"
       [filterBeforeOrEqualOperator]="'Es anterior o igual a'" [filterBooleanAll]="'Todo'"
@@ -42,6 +43,7 @@
     </kendo-grid-column>
 
     <ng-template kendoGridToolbarTemplate>
+      <button kendoGridAddCommand>Add new</button>
       <kendo-grid-spacer></kendo-grid-spacer>
       <input type="text" *ngIf="search" placeholder="Buscar puesto..." kendoTextBox
         (input)="onFilter($event.target.value)">
@@ -61,27 +63,43 @@
     </kendo-grid-column>
     <kendo-grid-column field="puestoIdOficial" title="Código oficial" [width]="100" media="md">
     </kendo-grid-column>
-    <kendo-grid-column field="tipoVinculo.nombre" title="TP" [width]="100" media="md">
+    <kendo-grid-column field="tipoVinculoNombre" title="TP" [width]="100" media="md">
+      <ng-template kendoGridCellTemplate let-dataItem>
+        {{ dataItem.tipoVinculo?.nombre }}
+      </ng-template>
     </kendo-grid-column>
-    <kendo-grid-column field="puestoTipo.nombre" title="Denominación" [width]="200" media="md">
+    <kendo-grid-column field="puestoTipoNombre" title="Denominación" [width]="200" media="md">
+      <ng-template kendoGridCellTemplate let-dataItem>
+        {{ dataItem.puestoTipo?.nombre }}
+      </ng-template>
     </kendo-grid-column>
-    <kendo-grid-column field="catalogo.nombre" title="Catálogo" [width]="200" media="md">
+    <kendo-grid-column field="catalogoNombre" title="Catálogo" [width]="200" media="md">
+      <ng-template kendoGridCellTemplate let-dataItem>
+        {{ dataItem.catalogo?.nombre }}
+      </ng-template>
     </kendo-grid-column>
-    <kendo-grid-column field="adscripcion.nombre" title="Adscripción administración" [width]="200" media="md">
+    <kendo-grid-column field="adscripcionNombre" title="Adscripción administración" [width]="200" media="md">
+      <ng-template kendoGridCellTemplate let-dataItem>
+        {{ dataItem.adscripcion?.nombre }}
+      </ng-template>
     </kendo-grid-column>
     <kendo-grid-column field="grupo1Id" title="G1" [width]="80" media="md">
     </kendo-grid-column>
     <kendo-grid-column field="grupo2Id" title="G2" [width]="80" media="md">
     </kendo-grid-column>
-    <kendo-grid-column field="escala.nombre" title="Escala" [width]="400" media="md">
+    <kendo-grid-column field="escalaNombre" title="Escala" [width]="400" media="md">
+      <ng-template kendoGridCellTemplate let-dataItem>
+        {{ dataItem.escala?.nombre }}
+      </ng-template>
     </kendo-grid-column>
     <kendo-grid-column type="checkbox" field="disponibilidadPlena" title="Disponibilidad" [width]="80" filter="boolean"
-      media="md">
+      media="md" editor="boolean">
       <ng-template kendoGridCellTemplate let-dataItem>
         <input type="checkbox" [checked]="dataItem.disponibilidadPlena" disabled />
       </ng-template>
     </kendo-grid-column>
-    <kendo-grid-column field="fechaVigenciaInicio" title="Inicio Fecha Vigencia" [width]="400" filter="date" media="md">
+    <kendo-grid-column field="fechaVigenciaInicio" title="Inicio Fecha Vigencia" [width]="400" filter="date" media="md"
+      editor="date">
       <ng-template kendoGridCellTemplate let-dataItem>
         {{dataItem.fechaVigenciaInicio | date}}
       </ng-template>
@@ -93,5 +111,17 @@
     <kendo-grid-column field="escala.nombre" title="Escala" [width]="400" media="md">
     </kendo-grid-column>
     <kendo-grid-excel fileName="Puestos.xlsx"></kendo-grid-excel>
+    <kendo-grid-command-column title="command" [width]="220">
+      <ng-template kendoGridCellTemplate let-isNew="isNew">
+        <button kendoGridEditCommand [primary]="true">Edit</button>
+        <button kendoGridRemoveCommand>Remove</button>
+        <button kendoGridSaveCommand [disabled]="formGroup?.invalid">
+          {{ isNew ? "Add" : "Update" }}
+        </button>
+        <button kendoGridCancelCommand>
+          {{ isNew ? "Discard changes" : "Cancel" }}
+        </button>
+      </ng-template>
+    </kendo-grid-command-column>
   </kendo-grid>
 </div>
