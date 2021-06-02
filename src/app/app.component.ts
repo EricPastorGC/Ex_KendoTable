@@ -162,12 +162,44 @@ export class AppComponent implements OnInit {
     sender.addRow(this.formGroup);
   }
 
+  public editHandler({ sender, rowIndex, dataItem }) {
+    this.closeEditor(sender);
+
+    this.formGroup = new FormGroup({
+      id: new FormControl(dataItem.id),
+      puestoId: new FormControl(dataItem.puestoId),
+      puestoIdOficial: new FormControl(dataItem.puestoIdOficial),
+      tipoVinculoNombre: new FormControl(dataItem?.tipoVinculo?.nombre),
+      puestoTipoNombre: new FormControl(dataItem?.puestoTipo?.nombre),
+      catalogoNombre: new FormControl(dataItem?.catalogo?.nombre),
+      adscripcionNombre: new FormControl(dataItem?.adscripcion?.nombre),
+      grupo1Id: new FormControl(dataItem.grupo1Id),
+      grupo2Id: new FormControl(dataItem.grupo2Id),
+      escalaNombre: new FormControl(dataItem?.escala?.nombre),
+      disponibilidadPlena: new FormControl(dataItem.disponibilidadPlena),
+      fechaVigenciaInicio: new FormControl(dataItem.fechaVigenciaInicio),
+    });
+
+    this.editedRowIndex = rowIndex;
+
+    sender.editRow(rowIndex, this.formGroup);
+  }
+
   public saveHandler({ sender, rowIndex, formGroup, isNew }) {
     const puesto: Puesto = formGroup.value;
 
     if (isNew) this.apiService.postData(puesto).subscribe();
+    else this.apiService.putData(puesto.id, puesto).subscribe();
 
     sender.closeRow(rowIndex);
+
+    this.loadData();
+  }
+
+  public removeHandler({ dataItem }) {
+    this.apiService.removeData(dataItem).subscribe();
+
+    this.loadData();
   }
 
   private closeEditor(grid, rowIndex = this.editedRowIndex) {

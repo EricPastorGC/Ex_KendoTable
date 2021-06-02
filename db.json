@@ -75,77 +75,6 @@
       "state": 0
     },
     {
-      "adscripcion": null,
-      "camino": null,
-      "catalogo": null,
-      "clase": null,
-      "complementoDestino": null,
-      "complementoDestinoId": null,
-      "complementoDestinoImporte": null,
-      "complementoEspecifico": {
-        "id": 15,
-        "complementoEspecificoId": "022",
-        "nombre": "veintidos"
-      },
-      "complementoEspecificoId": "022",
-      "complementoEspecificoImporte": null,
-      "cuerpo": null,
-      "disponibilidadPlena": false,
-      "dotaciones": 2,
-      "ocupantes": 0,
-      "vacantes": 2,
-      "dotado": false,
-      "empresaId": "99113",
-      "escala": null,
-      "fechaAlta": null,
-      "fechaVigenciaFin": null,
-      "fechaVigenciaInicio": "2019-01-01T00:00:00+01:00",
-      "formaProvision": null,
-      "grupo1Id": null,
-      "grupo1Importe": 0,
-      "grupo2Id": null,
-      "id": 14869,
-      "idUnidadOrganizativa": null,
-      "motivo": null,
-      "nombre": "Regidor",
-      "nombreCompleto": "Regidor [00003]",
-      "personaDeConfianza": false,
-      "puesto": {
-        "id": 11124,
-        "puestoId": "00003",
-        "nombre": "Regidor",
-        "empresaId": "99113",
-        "fechaAlta": "2019-01-01T00:00:00+01:00",
-        "fechaBaja": null,
-        "rowVersion": "8D8FF68EF665D30",
-        "unidadesOrganizativas": [],
-        "motivoAmortizacion": {
-          "id": 1,
-          "nombre": "Decreto de regularización",
-          "rowVersion": "8D8912F151C6CC0"
-        }
-      },
-      "puestoTipo": null,
-      "puestoId": "00003",
-      "puestoIdOficial": null,
-      "puestoTipoId": null,
-      "reservadoNacionales": false,
-      "retribucion": null,
-      "retribucionAnualGrupo": null,
-      "retribucionExtraDiciembreGrupo": null,
-      "retribucionExtraJunioGrupo": null,
-      "rowVersion": "8D8FF68EF748E00",
-      "rutaUnidadOrganizativa": null,
-      "singularizado": false,
-      "subEscala": null,
-      "tipoVinculo": null,
-      "unidadOrganizativaId": null,
-      "versionId": 1,
-      "unidadOrganizativa": null,
-      "customFieldValue": [],
-      "state": 0
-    },
-    {
       "adscripcion": {
         "adscripcionId": "A4",
         "id": 4,
@@ -66858,162 +66787,6 @@
         "nombre": "Adminis. de Estado Y Local",
         "rowVersion": "8D77722A3484370"
       },
-      "camino": "00001>00007>00078>00014",
-      "catalogo": null,
-      "clase": null,
-      "complementoDestino": {
-        "nivel": "21",
-        "importe": 518.33
-      },
-      "complementoDestinoId": 21,
-      "complementoDestinoImporte": 518.33,
-      "complementoEspecifico": {
-        "id": 15,
-        "complementoEspecificoId": "022",
-        "nombre": "veintidos",
-        "importe": 4620
-      },
-      "complementoEspecificoId": "022",
-      "complementoEspecificoImporte": 4620,
-      "cuerpo": null,
-      "disponibilidadPlena": false,
-      "dotaciones": 1,
-      "ocupantes": 0,
-      "vacantes": 1,
-      "dotado": false,
-      "empresaId": "99113",
-      "escala": null,
-      "fechaAlta": null,
-      "fechaVigenciaFin": null,
-      "fechaVigenciaInicio": "2021-02-26T00:00:00+01:00",
-      "formaProvision": null,
-      "grupo1Id": "A1",
-      "grupo1Importe": 16071.44,
-      "grupo2Id": null,
-      "id": 15991,
-      "idUnidadOrganizativa": 18778,
-      "motivo": {
-        "id": 48,
-        "motivoId": 9,
-        "nombre": "2020",
-        "rowVersion": "8D8984AF2AD4A10",
-        "empresaId": "99113"
-      },
-      "nombre": "Regidor",
-      "nombreCompleto": "Regidor [00006]",
-      "personaDeConfianza": false,
-      "puesto": {
-        "id": 11127,
-        "puestoId": "00006",
-        "nombre": "Regidor",
-        "empresaId": "99113",
-        "fechaAlta": "2019-01-01T00:00:00+01:00",
-        "fechaBaja": null,
-        "rowVersion": "8D8FD9EA93C0BF0",
-        "unidadesOrganizativas": [
-          {
-            "esJefePrincipal": false,
-            "esPuesto": true,
-            "fechaCreacion": "2000-01-01T00:00:00+01:00",
-            "id": 18778,
-            "nombre": "Regidor",
-            "profundidad": 0,
-            "rowVersion": "8D8CDAF41627E70",
-            "tipoJefe": "HijosYHermanos",
-            "unidadOrganizativaId": "00014",
-            "empresaId": "99113",
-            "codigoFormal": "001",
-            "codigoFormalNumerico": 1,
-            "state": 0
-          }
-        ],
-        "motivoAmortizacion": null
-      },
-      "puestoTipo": {
-        "id": 478,
-        "puestoTipoId": "88867",
-        "nombre": "Regidorsssssasdasd",
-        "rowVersion": "8D90BD0958FD3D0"
-      },
-      "puestoId": "00006",
-      "puestoIdOficial": null,
-      "puestoTipoId": "88867",
-      "reservadoNacionales": false,
-      "retribucion": 16071.44,
-      "retribucionAnualGrupo": 14572.68,
-      "retribucionExtraDiciembreGrupo": 749.38,
-      "retribucionExtraJunioGrupo": 749.38,
-      "rowVersion": "8D900121A887E40",
-      "rutaUnidadOrganizativa": [
-        "Ajuntament",
-        "Àrea de cultura Educació i Lleure",
-        "Esports",
-        "Regidor"
-      ],
-      "singularizado": false,
-      "subEscala": null,
-      "tipoVinculo": {
-        "tipoVinculoId": "F",
-        "nombre": "Funcionario",
-        "asimilado": "F",
-        "id": 3,
-        "rowVersion": "8D88013FA930C00"
-      },
-      "unidadOrganizativaId": "00014",
-      "versionId": 5,
-      "unidadOrganizativa": {
-        "camino": "00001>00007>00078>00014",
-        "esJefePrincipal": false,
-        "esPuesto": true,
-        "fechaCreacion": "2000-01-01T00:00:00+01:00",
-        "id": 18778,
-        "idUnidadOrganizativaPadre": 18821,
-        "nombre": "Regidor",
-        "organigrama": {
-          "id": 420,
-          "nombre": "Grupo Castilla (No tocar)",
-          "organigramaId": "99113",
-          "rowVersion": "8D903F4084A5AB0",
-          "uniqueIdentifier": "9f9568af-c665-47b9-aedd-476f5d2ec15b"
-        },
-        "profundidad": 3,
-        "recursoIcono": "ZIC_Seccion_L",
-        "rowVersion": "8D8CDAF41627E70",
-        "rutaUnidadOrganizativa": [
-          "Ajuntament",
-          "Àrea de cultura Educació i Lleure",
-          "Esports",
-          "Regidor"
-        ],
-        "tipoJefe": "HijosYHermanos",
-        "unidadOrganizativaId": "00014",
-        "unidadOrganizativaPadreId": "00078",
-        "empresaId": "99113",
-        "categoria": {
-          "id": 14,
-          "categoriaNivel": "007",
-          "nombre": "Puesto",
-          "esPuesto": true,
-          "recursoIcono": "ZIC_Seccion_L",
-          "nDigitos": 2,
-          "sinFormato": true,
-          "tipoPrint": "1",
-          "rowVersion": "8D917491E2812B0"
-        },
-        "codigoFormal": "001",
-        "codigoFormalNumerico": 1,
-        "state": 0
-      },
-      "customFieldValue": [],
-      "state": 0
-    },
-    {
-      "adscripcion": {
-        "adscripcionId": "A2",
-        "id": 2,
-        "nombre": "Adminis. de Estado Y Local",
-        "rowVersion": "8D77722A3484370"
-      },
       "camino": "00001>00008>00069>00015",
       "catalogo": null,
       "clase": null,
@@ -81284,28 +81057,21 @@
       "state": 0
     },
     {
-      "puestoId": "0001",
-      "puestoIdOficial": "fadf",
-      "tipoVinculoNombre": "afda",
-      "puestoTipoNombre": "afaf",
-      "catalogoNombre": "afafa",
-      "adscripcionNombre": "afafaafa",
-      "grupo1Id": "afa",
-      "grupo2Id": "afa",
-      "escalaNombre": "afafafaaf",
+      "puestoId": "99999",
+      "puestoIdOficial": "94588",
+      "tipoVinculoNombre": "Empresa",
+      "puestoTipoNombre": "dafafa",
+      "catalogoNombre": "fdafafa",
+      "adscripcionNombre": null,
+      "grupo1Id": "A3",
+      "grupo2Id": null,
+      "escalaNombre": null,
       "disponibilidadPlena": true,
-      "fechaVigenciaInicio": "2021-06-01T22:00:00.000Z",
-      "Discontinued": false,
-      "id": 16107
+      "fechaVigenciaInicio": "2021-02-28T23:00:00.000Z",
+      "id": 16108
     }
   ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
+  "comments": [],
   "profile": {
     "name": "typicode"
   }

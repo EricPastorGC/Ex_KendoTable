@@ -25,7 +25,7 @@ export class ApiService {
       map((data: Puesto[]) =>
         data.map(
           (item: Puesto) =>
-            new Puesto(item.puestoId, item.puestoIdOficial, item.tipoVinculo, item.puestoTipo,
+            new Puesto(item.id, item.puestoId, item.puestoIdOficial, item.tipoVinculo, item.puestoTipo,
               item.catalogo, item.adscripcion, item.grupo1Id, item.grupo2Id, item.escala,
               item.disponibilidadPlena, new Date(item.fechaVigenciaInicio))
         )
@@ -36,4 +36,15 @@ export class ApiService {
   postData(item: Puesto): Observable<Puesto> {
     return this.http.post<Puesto>(localUrl, item);
   }
+
+  putData(id: number, item: Puesto): Observable<Puesto> {
+    const url = `${localUrl}/${id}`
+    return this.http.put<Puesto>(url, item);
+  }
+
+  removeData(item: Puesto): Observable<Puesto> {
+    const url = `${localUrl}/${item.id}`
+    return this.http.delete<Puesto>(url);
+  }
+
 }
