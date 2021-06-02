@@ -4,6 +4,43 @@
     filterable="menu" [groupable]="groupable" [group]="gridCurrentState.group"
     [columnMenu]="{filter: {expanded: true}, columnChooser: false  }" (groupChange)="groupChange($event)"
     (dataStateChange)="dataStateChange($event)" (sortChange)="sortChange($event)" (pageChange)="pageChange($event)">
+    <kendo-grid-messages [filter]="'Filtro'" [filterAfterOperator]="'Es superior a'"
+      [filterAfterOrEqualOperator]="'Es superior a'" [filterAndLogic]="'Y'" [filterBeforeOperator]="'Es anterior a'"
+      [filterBeforeOrEqualOperator]="'Es anterior o igual a'" [filterBooleanAll]="'Todo'"
+      [filterClearButton]="'Limpiar'" [filterContainsOperator]="'Contiene'" [filterEndsWithOperator]="'Finaliza con'"
+      [filterEqOperator]="'Es igual que'" [filterFilterButton]="'Filtrar'" [filterGtOperator]="'Es más grande que'"
+      [filterGteOperator]="'Es más grande o igual que'" [filterIsEmptyOperator]="'Es vacío'"
+      [filterIsFalse]="'Es falso'" [filterIsNotEmptyOperator]="'No está vacío'" [filterIsNotNullOperator]="'No es nulo'"
+      [filterIsNullOperator]="'Es nulo'" [filterIsTrue]="'Es verdadero'" [filterLtOperator]="'Es menor que'"
+      [filterLteOperator]="'Es menor o igual que'" [filterNotContainsOperator]="'No contiene'"
+      [filterNotEqOperator]="'No es igual a'" [filterOrLogic]="'O'" [filterStartsWithOperator]="'Empieza con'"
+      [pagerFirstPage]="'Ir a la primera página'" [pagerItems]="'registros'"
+      [pagerItemsPerPage]="'registros por página'" [pagerOf]="'de'"
+      [groupPanelEmpty]="'Arrastra una categoría a esta barra para agrupar'">
+      ></kendo-grid-messages>
+
+    <kendo-grid-column media="xs" title="Puestos">
+      <ng-template kendoGridCellTemplate let-dataItem="dataItem">
+        <!-- template for mobile -->
+        <h4 [class.discontinued]="dataItem.Discontinued">
+          {{ dataItem.puestoId }}
+        </h4>
+        <dl>
+          <dt>Código oficial</dt>
+          <dd>{{ dataItem.puestoIdOficial }}</dd>
+
+          <dt>Denominación</dt>
+          <dd>{{ dataItem.puestoTipo?.nombre }}</dd>
+
+          <dt>Inicio Fecha Vigencia</dt>
+          <dd>{{ dataItem.fechaVigenciaInicio | date }}</dd>
+
+          <dt>Disponibilidad</dt>
+          <dd><input type="checkbox" [checked]="dataItem.disponibilidadPlena" disabled /></dd>
+        </dl>
+      </ng-template>
+    </kendo-grid-column>
+
     <ng-template kendoGridToolbarTemplate>
       <kendo-grid-spacer></kendo-grid-spacer>
       <input type="text" *ngIf="search" placeholder="Buscar puesto..." kendoTextBox
@@ -20,39 +57,40 @@
       </div>
       <kendo-grid-column-chooser matTooltip="Mostrar columnas"></kendo-grid-column-chooser>
     </ng-template>
-    <kendo-grid-column field="puestoId" title="Cód." [width]="100">
+    <kendo-grid-column field="puestoId" title="Cód." [width]="100" media="md">
     </kendo-grid-column>
-    <kendo-grid-column field="puestoIdOficial" title="Código oficial" [width]="100">
+    <kendo-grid-column field="puestoIdOficial" title="Código oficial" [width]="100" media="md">
     </kendo-grid-column>
-    <kendo-grid-column field="tipoVinculo.nombre" title="TP" [width]="100">
+    <kendo-grid-column field="tipoVinculo.nombre" title="TP" [width]="100" media="md">
     </kendo-grid-column>
-    <kendo-grid-column field="puestoTipo.nombre" title="Denominación" [width]="200">
+    <kendo-grid-column field="puestoTipo.nombre" title="Denominación" [width]="200" media="md">
     </kendo-grid-column>
-    <kendo-grid-column field="catalogo.nombre" title="Catálogo" [width]="200">
+    <kendo-grid-column field="catalogo.nombre" title="Catálogo" [width]="200" media="md">
     </kendo-grid-column>
-    <kendo-grid-column field="adscripcion.nombre" title="Adscripción administración" [width]="200">
+    <kendo-grid-column field="adscripcion.nombre" title="Adscripción administración" [width]="200" media="md">
     </kendo-grid-column>
-    <kendo-grid-column field="grupo1Id" title="G1" [width]="80">
+    <kendo-grid-column field="grupo1Id" title="G1" [width]="80" media="md">
     </kendo-grid-column>
-    <kendo-grid-column field="grupo2Id" title="G2" [width]="80">
+    <kendo-grid-column field="grupo2Id" title="G2" [width]="80" media="md">
     </kendo-grid-column>
-    <kendo-grid-column field="escala.nombre" title="Escala" [width]="400">
+    <kendo-grid-column field="escala.nombre" title="Escala" [width]="400" media="md">
     </kendo-grid-column>
-    <kendo-grid-column type="checkbox" field="disponibilidadPlena" title="Disponibilidad" [width]="80" filter="boolean">
+    <kendo-grid-column type="checkbox" field="disponibilidadPlena" title="Disponibilidad" [width]="80" filter="boolean"
+      media="md">
       <ng-template kendoGridCellTemplate let-dataItem>
         <input type="checkbox" [checked]="dataItem.disponibilidadPlena" disabled />
       </ng-template>
     </kendo-grid-column>
-    <kendo-grid-column field="fechaVigenciaInicio" title="Inicio Fecha Vigencia" [width]="400" filter="date">
+    <kendo-grid-column field="fechaVigenciaInicio" title="Inicio Fecha Vigencia" [width]="400" filter="date" media="md">
       <ng-template kendoGridCellTemplate let-dataItem>
         {{dataItem.fechaVigenciaInicio | date}}
       </ng-template>
     </kendo-grid-column>
-    <kendo-grid-column field="escala.nombre" title="Escala" [width]="400">
+    <kendo-grid-column field="escala.nombre" title="Escala" [width]="400" media="md">
     </kendo-grid-column>
-    <kendo-grid-column field="escala.nombre" title="Escala" [width]="400">
+    <kendo-grid-column field="escala.nombre" title="Escala" [width]="400" media="md">
     </kendo-grid-column>
-    <kendo-grid-column field="escala.nombre" title="Escala" [width]="400">
+    <kendo-grid-column field="escala.nombre" title="Escala" [width]="400" media="md">
     </kendo-grid-column>
     <kendo-grid-excel fileName="Puestos.xlsx"></kendo-grid-excel>
   </kendo-grid>

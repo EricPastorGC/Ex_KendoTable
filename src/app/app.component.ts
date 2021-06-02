@@ -30,6 +30,9 @@ export class AppComponent implements OnInit {
 
   private puestos: Puesto[];
 
+  public minWidthPc: 450;
+  public maxWidthMob: 450
+
   public multiple = false;
   public pageSize = 10;
   public take = 0;
