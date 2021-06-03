@@ -44,12 +44,15 @@
     </kendo-grid-column>
 
     <ng-template kendoGridToolbarTemplate>
-      <button kendoGridAddCommand>Add new</button>
+      <div kendoGridAddCommand class="k-button k-bare">
+        <span class="k-icon k-i-plus-circle k-icon-25 colored-icon" style="color: rgb(49, 49, 209);"
+          matTooltip="Añadir nuevo puesto"></span>
+      </div>
       <kendo-grid-spacer></kendo-grid-spacer>
       <input type="text" *ngIf="search" placeholder="Buscar puesto..." kendoTextBox
         (input)="onFilter($event.target.value)">
       <div (click)="showSearch()" class="k-button k-bare">
-        <span class="k-icon k-i-search" matTooltip="Buscar puestos"></span>
+        <span class="k-icon k-i-search " matTooltip="Buscar puestos"></span>
       </div>
       <div (click)="showGroupable()" class="k-button k-bare">
         <span class="k-icon k-i-aggregate-fields" *ngIf="!groupable" matTooltip="Mostrar agrupar columnas"></span>
