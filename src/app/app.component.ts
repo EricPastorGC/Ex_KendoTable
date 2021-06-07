@@ -103,22 +103,22 @@ export class AppComponent implements OnInit {
             value: inputValue,
           },
           {
-            field: "tipoVinculo.nombre",
+            field: "tipoVinculoNombre",
             operator: "contains",
             value: inputValue,
           },
           {
-            field: "puestoTipo.nombre",
+            field: "puestoTipoNombre",
             operator: "contains",
             value: inputValue,
           },
           {
-            field: "catalogo.nombre",
+            field: "catalogoNombre",
             operator: "contains",
             value: inputValue,
           },
           {
-            field: "adscripcion.nombre",
+            field: "adscripcionNombre",
             operator: "contains",
             value: inputValue,
           },
@@ -133,7 +133,7 @@ export class AppComponent implements OnInit {
             value: inputValue,
           },
           {
-            field: "escala.nombre",
+            field: "escalaNombre",
             operator: "contains",
             value: inputValue,
           },

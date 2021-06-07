@@ -3,7 +3,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Puesto } from '../puestos';
 import { map } from 'rxjs/operators';
-import { ItemTemplateDirective } from '@progress/kendo-angular-dropdowns';
 
 const localUrl = 'http://localhost:3000/posts';
 

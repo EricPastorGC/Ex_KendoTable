@@ -1,11 +1,11 @@
-<div class="gc-kendo-grid">
-  <kendo-grid [data]="gridView" [height]="500" [resizable]="true" [pageSize]="pageSize" [skip]="gridCurrentState.skip"
-    [sort]="gridCurrentState.sort" [filter]="gridCurrentState.filter" [sortable]="{ mode: 'multiple'}" [pageable]="true"
-    filterable="menu" [groupable]="groupable" [group]="gridCurrentState.group"
-    [columnMenu]="{filter: {expanded: true}, columnChooser: false  }" (groupChange)="groupChange($event)"
-    (dataStateChange)="dataStateChange($event)" (sortChange)="sortChange($event)" (pageChange)="pageChange($event)"
-    (add)="addHandler($event)" (edit)="editHandler($event)" (save)="saveHandler($event)"
-    (remove)="removeHandler($event)" (cancel)="cancelHandler($event)">
+<div class="k-grid">
+  <kendo-grid #grid [data]="gridView" [height]="500" [resizable]="true" [pageSize]="pageSize"
+    [skip]="gridCurrentState.skip" [sort]="gridCurrentState.sort" [filter]="gridCurrentState.filter"
+    [sortable]="{ mode: 'multiple'}" [pageable]="true" filterable="menu" [groupable]="groupable"
+    [group]="gridCurrentState.group" [columnMenu]="{filter: {expanded: true}, columnChooser: false  }"
+    (groupChange)="groupChange($event)" (dataStateChange)="dataStateChange($event)" (sortChange)="sortChange($event)"
+    (pageChange)="pageChange($event)" (add)="addHandler($event)" (edit)="editHandler($event)"
+    (save)="saveHandler($event)" (remove)="removeHandler($event)" (cancel)="cancelHandler($event)">
     <kendo-grid-messages [filter]="'Filtro'" [filterAfterOperator]="'Es superior a'"
       [filterAfterOrEqualOperator]="'Es superior a'" [filterAndLogic]="'Y'" [filterBeforeOperator]="'Es anterior a'"
       [filterBeforeOrEqualOperator]="'Es anterior o igual a'" [filterBooleanAll]="'Todo'"
@@ -63,6 +63,26 @@
       </div>
       <kendo-grid-column-chooser matTooltip="Mostrar columnas"></kendo-grid-column-chooser>
     </ng-template>
+    <kendo-grid-command-column media="md" [width]="110" [resizable]="false">
+      <ng-template kendoGridCellTemplate let-isNew="isNew" let-dataItem="dataItem" let-rowIndex="rowIndex"
+        let-columnIndex="columnIndex">
+        <div>
+          <button kendoGridEditCommand mat-icon-button *ngIf="!isNew">
+            <span class="k-icon k-i-edit k-i-pencil" matTooltip="Editar"></span>
+          </button>
+          <button kendoGridRemoveCommand mat-icon-button *ngIf="!isNew">
+            <span class="k-icon k-i-x" matTooltip="Eliminar"></span>
+          </button>
+          <button kendoGridSaveCommand mat-icon-button [disabled]="formGroup?.invalid">
+            <span class="k-icon k-i-check k-i-checkmark" matTooltip='{{ isNew ? "Add" : "Update" }}'></span>
+          </button>
+          <button kendoGridCancelCommand mat-icon-button>
+            <span class="k-icon k-i-cancel" matTooltip='{{ isNew ? "Discard changes" : "Cancel" }}'></span>
+          </button>
+        </div>
+      </ng-template>
+    </kendo-grid-command-column>
+
     <kendo-grid-column field="puestoId" title="Cód." [width]="100" media="md">
     </kendo-grid-column>
     <kendo-grid-column field="puestoIdOficial" title="Código oficial" [width]="100" media="md">
@@ -76,6 +96,7 @@
       <ng-template kendoGridCellTemplate let-dataItem>
         {{ dataItem.puestoTipo?.nombre }}
       </ng-template>
+
     </kendo-grid-column>
     <kendo-grid-column field="catalogoNombre" title="Catálogo" [width]="200" media="md">
       <ng-template kendoGridCellTemplate let-dataItem>
@@ -115,17 +136,5 @@
     <kendo-grid-column field="escala.nombre" title="Escala" [width]="400" media="md">
     </kendo-grid-column>
     <kendo-grid-excel fileName="Puestos.xlsx"></kendo-grid-excel>
-    <kendo-grid-command-column title="Comandos" [width]="220">
-      <ng-template kendoGridCellTemplate let-isNew="isNew">
-        <button kendoGridEditCommand [primary]="true">Edit</button>
-        <button kendoGridRemoveCommand>Remove</button>
-        <button kendoGridSaveCommand [disabled]="formGroup?.invalid">
-          {{ isNew ? "Add" : "Update" }}
-        </button>
-        <button kendoGridCancelCommand>
-          {{ isNew ? "Discard changes" : "Cancel" }}
-        </button>
-      </ng-template>
-    </kendo-grid-command-column>
   </kendo-grid>
 </div>

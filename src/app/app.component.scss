@@ -39,3 +39,13 @@ my-app > .k-icon.k-i-loading {
 .k-icon-25 {
     font-size: 25px; /* Sets icon size to 48px */
 }
+
+.remove-item {
+    visibility: hidden !important;
+}
+
+.k-grid tr:hover {
+    .remove-item {
+        visibility: visible !important;
+        }
+}
