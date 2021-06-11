@@ -21,6 +21,32 @@ const gridInitialState: State = {
   group: []
 };
 
+const createFormGroup = (dataItem: Puesto) =>
+  new FormGroup({
+    id: new FormControl(dataItem.id),
+    puestoId: new FormControl(dataItem.puestoId),
+    puestoIdOficial: new FormControl(dataItem.puestoIdOficial),
+    tipoVinculo: new FormGroup({
+      nombre: new FormControl(dataItem?.tipoVinculo?.nombre)
+    }),
+    puestoTipo: new FormGroup({
+      nombre: new FormControl(dataItem?.puestoTipo?.nombre)
+    }),
+    catalogo: new FormGroup({
+      nombre: new FormControl(dataItem?.catalogo?.nombre)
+    }),
+    adscripcion: new FormGroup({
+      nombre: new FormControl(dataItem?.adscripcion?.nombre)
+    }),
+    grupo1Id: new FormControl(dataItem.grupo1Id),
+    grupo2Id: new FormControl(dataItem.grupo2Id),
+    escala: new FormGroup({
+      nombre: new FormControl(dataItem?.escala?.nombre)
+    }),
+    disponibilidadPlena: new FormControl(dataItem.disponibilidadPlena),
+    fechaVigenciaInicio: new FormControl(dataItem.fechaVigenciaInicio),
+  });
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -103,22 +129,17 @@ export class AppComponent implements OnInit {
             value: inputValue,
           },
           {
-            field: "tipoVinculoNombre",
+            field: "tipoVinculo.nombre",
             operator: "contains",
             value: inputValue,
           },
           {
-            field: "puestoTipoNombre",
+            field: "puestoTipo.nombre",
             operator: "contains",
             value: inputValue,
           },
           {
-            field: "catalogoNombre",
-            operator: "contains",
-            value: inputValue,
-          },
-          {
-            field: "adscripcionNombre",
+            field: "catalogo.nombre",
             operator: "contains",
             value: inputValue,
           },
@@ -133,11 +154,11 @@ export class AppComponent implements OnInit {
             value: inputValue,
           },
           {
-            field: "escalaNombre",
+            field: "escala.nombre",
             operator: "contains",
             value: inputValue,
-          },
-        ],
+          }
+        ]
       },
     });
   }
@@ -145,18 +166,19 @@ export class AppComponent implements OnInit {
   public addHandler({ sender }) {
     this.closeEditor(sender);
 
-    this.formGroup = new FormGroup({
-      puestoId: new FormControl(),
-      puestoIdOficial: new FormControl(),
-      tipoVinculoNombre: new FormControl(),
-      puestoTipoNombre: new FormControl(),
-      catalogoNombre: new FormControl(),
-      adscripcionNombre: new FormControl(),
-      grupo1Id: new FormControl(),
-      grupo2Id: new FormControl(),
-      escalaNombre: new FormControl(),
-      disponibilidadPlena: new FormControl(),
-      fechaVigenciaInicio: new FormControl(),
+    this.formGroup = createFormGroup({
+      id: 0,
+      puestoId: 0,
+      puestoIdOficial: "",
+      tipoVinculo: null,
+      puestoTipo: null,
+      catalogo: null,
+      adscripcion: null,
+      grupo1Id: "",
+      grupo2Id: "",
+      escala: null,
+      disponibilidadPlena: false,
+      fechaVigenciaInicio: new Date(),
     });
 
     sender.addRow(this.formGroup);
@@ -165,20 +187,7 @@ export class AppComponent implements OnInit {
   public editHandler({ sender, rowIndex, dataItem }) {
     this.closeEditor(sender);
 
-    this.formGroup = new FormGroup({
-      id: new FormControl(dataItem.id),
-      puestoId: new FormControl(dataItem.puestoId),
-      puestoIdOficial: new FormControl(dataItem.puestoIdOficial),
-      tipoVinculoNombre: new FormControl(dataItem?.tipoVinculo?.nombre),
-      puestoTipoNombre: new FormControl(dataItem?.puestoTipo?.nombre),
-      catalogoNombre: new FormControl(dataItem?.catalogo?.nombre),
-      adscripcionNombre: new FormControl(dataItem?.adscripcion?.nombre),
-      grupo1Id: new FormControl(dataItem.grupo1Id),
-      grupo2Id: new FormControl(dataItem.grupo2Id),
-      escalaNombre: new FormControl(dataItem?.escala?.nombre),
-      disponibilidadPlena: new FormControl(dataItem.disponibilidadPlena),
-      fechaVigenciaInicio: new FormControl(dataItem.fechaVigenciaInicio),
-    });
+    this.formGroup = createFormGroup(dataItem)
 
     this.editedRowIndex = rowIndex;
 
@@ -211,4 +220,5 @@ export class AppComponent implements OnInit {
   public cancelHandler({ sender, rowIndex }) {
     sender.closeRow(rowIndex)
   }
+
 }

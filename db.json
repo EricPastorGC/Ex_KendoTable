@@ -1,349 +1,46 @@
 {
   "posts": [
     {
-      "adscripcion": {
-        "adscripcionId": "A4",
-        "id": 4,
-        "nombre": "Otras Administraciones",
-        "rowVersion": "8D77722A3484370"
-      },
-      "camino": null,
-      "catalogo": {
-        "id": 8,
-        "catalogoId": "0008",
-        "nombre": "RPT No individualizado",
-        "rowVersion": "8D809C188516920",
-        "activo": true
-      },
-      "clase": null,
-      "complementoDestino": null,
-      "complementoDestinoId": null,
-      "complementoDestinoImporte": null,
-      "complementoEspecifico": null,
-      "complementoEspecificoId": null,
-      "complementoEspecificoImporte": null,
-      "cuerpo": null,
-      "disponibilidadPlena": false,
-      "dotaciones": 1,
-      "ocupantes": 0,
-      "vacantes": 1,
-      "dotado": false,
-      "empresaId": "99113",
-      "escala": {
-        "id": 21,
-        "escalaId": "05",
-        "nombre": "Eventual",
-        "abreviacion": "EV",
-        "rowVersion": "8CF105DCC06CD10"
-      },
-      "fechaAlta": null,
-      "fechaVigenciaFin": null,
-      "fechaVigenciaInicio": "2019-01-01T00:00:00+01:00",
-      "formaProvision": null,
-      "grupo1Id": "01",
-      "grupo1Importe": 0,
-      "grupo2Id": "3 ",
-      "id": 14874,
-      "idUnidadOrganizativa": null,
-      "motivo": null,
-      "nombre": "Chofer",
-      "nombreCompleto": "Chofer [00008]",
-      "personaDeConfianza": false,
-      "puesto": {
-        "id": 11129,
-        "puestoId": "00008",
-        "nombre": "Chofer",
-        "empresaId": "99113",
-        "fechaAlta": "2019-01-01T00:00:00+01:00",
-        "fechaBaja": null,
-        "rowVersion": "8D900123F311B30",
-        "unidadesOrganizativas": [],
-        "motivoAmortizacion": null
-      },
-      "puestoTipo": {
-        "id": 541,
-        "puestoTipoId": "88908",
-        "nombre": "Mi pueschof",
-        "rowVersion": "8D900123ECF7330"
-      },
-      "puestoId": "00008",
-      "puestoIdOficial": null,
-      "puestoTipoId": "88908",
-      "reservadoNacionales": false,
-      "retribucion": null,
-      "retribucionAnualGrupo": null,
-      "retribucionExtraDiciembreGrupo": null,
-      "retribucionExtraJunioGrupo": null,
-      "rowVersion": "8D900123F2C8750",
-      "rutaUnidadOrganizativa": null,
-      "singularizado": false,
-      "subEscala": null,
-      "tipoVinculo": null,
-      "unidadOrganizativaId": null,
-      "versionId": 1,
-      "unidadOrganizativa": null,
-      "customFieldValue": [],
-      "state": 0
-    },
-    {
-      "adscripcion": {
-        "adscripcionId": "A2",
-        "id": 2,
-        "nombre": "Adminis. de Estado Y Local",
-        "rowVersion": "8D77722A3484370"
-      },
-      "camino": null,
-      "catalogo": null,
-      "clase": null,
-      "complementoDestino": {
-        "nivel": "21"
-      },
-      "complementoDestinoId": 21,
-      "complementoDestinoImporte": null,
-      "complementoEspecifico": {
-        "id": 15,
-        "complementoEspecificoId": "022",
-        "nombre": "veintidos"
-      },
-      "complementoEspecificoId": "022",
-      "complementoEspecificoImporte": null,
-      "cuerpo": null,
-      "disponibilidadPlena": false,
-      "dotaciones": 1,
-      "ocupantes": 1.94,
-      "vacantes": -0.94,
-      "dotado": false,
-      "empresaId": "99113",
-      "escala": null,
-      "fechaAlta": null,
-      "fechaVigenciaFin": null,
-      "fechaVigenciaInicio": "2019-01-01T00:00:00+01:00",
-      "formaProvision": null,
-      "grupo1Id": "A1",
-      "grupo1Importe": 0,
-      "grupo2Id": null,
       "id": 14876,
-      "idUnidadOrganizativa": null,
-      "motivo": null,
-      "nombre": "Regidor",
-      "nombreCompleto": "Regidor [00010]",
-      "personaDeConfianza": false,
-      "puesto": {
-        "id": 11131,
-        "puestoId": "00010",
-        "nombre": "Regidor",
-        "empresaId": "99113",
-        "fechaAlta": "2019-01-01T00:00:00+01:00",
-        "fechaBaja": null,
-        "rowVersion": "8D8FD56BFD3D1B0",
-        "unidadesOrganizativas": [],
-        "motivoAmortizacion": null
-      },
-      "puestoTipo": {
-        "id": 478,
-        "puestoTipoId": "88867",
-        "nombre": "Regidorsssssasdasd",
-        "rowVersion": "8D90BD0958FD3D0"
-      },
       "puestoId": "00010",
       "puestoIdOficial": null,
-      "puestoTipoId": "88867",
-      "reservadoNacionales": false,
-      "retribucion": null,
-      "retribucionAnualGrupo": null,
-      "retribucionExtraDiciembreGrupo": null,
-      "retribucionExtraJunioGrupo": null,
-      "rowVersion": "8D900121A887E40",
-      "rutaUnidadOrganizativa": null,
-      "singularizado": false,
-      "subEscala": null,
-      "tipoVinculo": {
-        "tipoVinculoId": "F",
-        "nombre": "Funcionario",
-        "asimilado": "F",
-        "id": 3,
-        "rowVersion": "8D88013FA930C00"
-      },
-      "unidadOrganizativaId": null,
-      "versionId": 1,
-      "unidadOrganizativa": null,
-      "customFieldValue": [],
-      "state": 0
+      "tipoVinculoNombre": "funchiii",
+      "puestoTipoNombre": null,
+      "catalogoNombre": null,
+      "adscripcionNombre": null,
+      "grupo1Id": "A1",
+      "grupo2Id": null,
+      "escalaNombre": null,
+      "disponibilidadPlena": false,
+      "fechaVigenciaInicio": "2018-12-31T23:00:00.000Z"
     },
     {
-      "adscripcion": {
-        "adscripcionId": "A2",
-        "id": 2,
-        "nombre": "Adminis. de Estado Y Local",
-        "rowVersion": "8D77722A3484370"
-      },
-      "camino": null,
-      "catalogo": null,
-      "clase": null,
-      "complementoDestino": {
-        "nivel": "18"
-      },
-      "complementoDestinoId": 18,
-      "complementoDestinoImporte": null,
-      "complementoEspecifico": {
-        "id": 2,
-        "complementoEspecificoId": "001",
-        "nombre": "RESPONSABLE"
-      },
-      "complementoEspecificoId": "001",
-      "complementoEspecificoImporte": null,
-      "cuerpo": {
-        "id": 9,
-        "cuerposId": "4    ",
-        "nombre": "Administrativos",
-        "rowVersion": "8CE7E1C7B3566E0"
-      },
-      "disponibilidadPlena": false,
-      "dotaciones": 1,
-      "ocupantes": 0,
-      "vacantes": 1,
-      "dotado": false,
-      "empresaId": "99113",
-      "escala": {
-        "id": 2,
-        "escalaId": "02",
-        "nombre": "Administración General",
-        "abreviacion": "AG",
-        "rowVersion": "8CD1EF1446613C0"
-      },
-      "fechaAlta": null,
-      "fechaVigenciaFin": null,
-      "fechaVigenciaInicio": "2019-01-01T00:00:00+01:00",
-      "formaProvision": null,
-      "grupo1Id": "C1",
-      "grupo1Importe": 0,
-      "grupo2Id": "E ",
       "id": 14877,
-      "idUnidadOrganizativa": null,
-      "motivo": null,
-      "nombre": "Administratiu/va",
-      "nombreCompleto": "Administratiu/va [00011]",
-      "personaDeConfianza": false,
-      "puesto": {
-        "id": 11132,
-        "puestoId": "00011",
-        "nombre": "Administratiu/va",
-        "empresaId": "99113",
-        "fechaAlta": "2019-01-01T00:00:00+01:00",
-        "fechaBaja": null,
-        "rowVersion": "8D8FD56BFD3D1B0",
-        "unidadesOrganizativas": [],
-        "motivoAmortizacion": null
-      },
-      "puestoTipo": {
-        "id": 535,
-        "puestoTipoId": "88902",
-        "nombre": "nuevo puesto tipo desde otro",
-        "rowVersion": "8D8F448975248A0"
-      },
       "puestoId": "00011",
       "puestoIdOficial": null,
-      "puestoTipoId": "88902",
-      "reservadoNacionales": false,
-      "retribucion": null,
-      "retribucionAnualGrupo": null,
-      "retribucionExtraDiciembreGrupo": null,
-      "retribucionExtraJunioGrupo": null,
-      "rowVersion": "8D9001CE7FE68D0",
-      "rutaUnidadOrganizativa": null,
-      "singularizado": false,
-      "subEscala": null,
-      "tipoVinculo": null,
-      "unidadOrganizativaId": null,
-      "versionId": 1,
-      "unidadOrganizativa": null,
-      "customFieldValue": [],
-      "state": 0
+      "tipoVinculoNombre": "hola",
+      "puestoTipoNombre": "nuevo puesto tipo desde otro",
+      "catalogoNombre": null,
+      "adscripcionNombre": "Adminis. de Estado Y Local",
+      "grupo1Id": "C1",
+      "grupo2Id": "E ",
+      "escalaNombre": "Administración General",
+      "disponibilidadPlena": false,
+      "fechaVigenciaInicio": "2018-12-31T23:00:00.000Z"
     },
     {
-      "adscripcion": {
-        "adscripcionId": "A2",
-        "id": 2,
-        "nombre": "Adminis. de Estado Y Local",
-        "rowVersion": "8D77722A3484370"
-      },
-      "camino": null,
-      "catalogo": null,
-      "clase": null,
-      "complementoDestino": {
-        "nivel": "21"
-      },
-      "complementoDestinoId": 21,
-      "complementoDestinoImporte": null,
-      "complementoEspecifico": {
-        "id": 15,
-        "complementoEspecificoId": "022",
-        "nombre": "veintidos"
-      },
-      "complementoEspecificoId": "022",
-      "complementoEspecificoImporte": null,
-      "cuerpo": null,
-      "disponibilidadPlena": false,
-      "dotaciones": 1,
-      "ocupantes": 1,
-      "vacantes": 0,
-      "dotado": false,
-      "empresaId": "99113",
-      "escala": null,
-      "fechaAlta": null,
-      "fechaVigenciaFin": null,
-      "fechaVigenciaInicio": "2019-01-01T00:00:00+01:00",
-      "formaProvision": null,
-      "grupo1Id": "A1",
-      "grupo1Importe": 0,
-      "grupo2Id": null,
       "id": 14878,
-      "idUnidadOrganizativa": null,
-      "motivo": null,
-      "nombre": "fff",
-      "nombreCompleto": "fff [00012]",
-      "personaDeConfianza": false,
-      "puesto": {
-        "id": 11133,
-        "puestoId": "00012",
-        "nombre": "Regidor",
-        "empresaId": "99113",
-        "fechaAlta": "2019-01-01T00:00:00+01:00",
-        "fechaBaja": null,
-        "rowVersion": "8D8FD56BFD5CD80",
-        "unidadesOrganizativas": [],
-        "motivoAmortizacion": null
-      },
-      "puestoTipo": {
-        "id": 478,
-        "puestoTipoId": "88867",
-        "nombre": "Regidorsssssasdasd",
-        "rowVersion": "8D90BD0958FD3D0"
-      },
       "puestoId": "00012",
       "puestoIdOficial": null,
-      "puestoTipoId": "88867",
-      "reservadoNacionales": false,
-      "retribucion": null,
-      "retribucionAnualGrupo": null,
-      "retribucionExtraDiciembreGrupo": null,
-      "retribucionExtraJunioGrupo": null,
-      "rowVersion": "8D900121A887E40",
-      "rutaUnidadOrganizativa": null,
-      "singularizado": false,
-      "subEscala": null,
-      "tipoVinculo": {
-        "tipoVinculoId": "F",
-        "nombre": "Funcionario",
-        "asimilado": "F",
-        "id": 3,
-        "rowVersion": "8D88013FA930C00"
-      },
-      "unidadOrganizativaId": null,
-      "versionId": 1,
-      "unidadOrganizativa": null,
-      "customFieldValue": [],
-      "state": 0
+      "tipoVinculoNombre": "Funci",
+      "puestoTipoNombre": "Regidorsssssasdasd",
+      "catalogoNombre": null,
+      "adscripcionNombre": "Adminis. de Estado Y Local",
+      "grupo1Id": "A1",
+      "grupo2Id": null,
+      "escalaNombre": null,
+      "disponibilidadPlena": false,
+      "fechaVigenciaInicio": "2018-12-31T23:00:00.000Z"
     },
     {
       "adscripcion": {
@@ -66008,182 +65705,24 @@
       "state": 0
     },
     {
-      "id": 16016,
-      "puestoId": "00002",
-      "puestoIdOficial": "93487",
-      "tipoVinculoNombre": null,
-      "puestoTipoNombre": null,
-      "catalogoNombre": null,
-      "adscripcionNombre": null,
-      "grupo1Id": "A3",
-      "grupo2Id": "A2",
-      "escalaNombre": null,
-      "disponibilidadPlena": false,
-      "fechaVigenciaInicio": "2021-03-22T23:00:00.000Z"
-    },
-    {
-      "id": 15973,
-      "puestoId": "00001",
-      "puestoIdOficial": "00155",
-      "tipoVinculoNombre": null,
-      "puestoTipoNombre": null,
-      "catalogoNombre": null,
-      "adscripcionNombre": null,
-      "grupo1Id": "A1",
-      "grupo2Id": null,
-      "escalaNombre": null,
-      "disponibilidadPlena": false,
-      "fechaVigenciaInicio": "2021-02-02T23:00:00.000Z"
-    },
-    {
-      "adscripcion": {
-        "adscripcionId": "A2",
-        "id": 2,
-        "nombre": "Adminis. de Estado Y Local",
-        "rowVersion": "8D77722A3484370"
-      },
-      "camino": "00001>00008>00069>00015",
-      "catalogo": null,
-      "clase": null,
-      "complementoDestino": {
-        "nivel": "21",
-        "importe": 518.33
-      },
-      "complementoDestinoId": 21,
-      "complementoDestinoImporte": 518.33,
-      "complementoEspecifico": {
-        "id": 15,
-        "complementoEspecificoId": "022",
-        "nombre": "veintidos",
-        "importe": 4620
-      },
-      "complementoEspecificoId": "022",
-      "complementoEspecificoImporte": 4620,
-      "cuerpo": null,
-      "disponibilidadPlena": false,
-      "dotaciones": 1,
-      "ocupantes": 0.35,
-      "vacantes": 0.65,
-      "dotado": false,
-      "empresaId": "99113",
-      "escala": null,
-      "fechaAlta": null,
-      "fechaVigenciaFin": null,
-      "fechaVigenciaInicio": "2021-01-20T00:00:00+01:00",
-      "formaProvision": null,
-      "grupo1Id": "A1",
-      "grupo1Importe": 16071.44,
-      "grupo2Id": null,
       "id": 15957,
-      "idUnidadOrganizativa": 18786,
-      "motivo": null,
-      "nombre": "Regidor",
-      "nombreCompleto": "Regidor [00007]",
-      "personaDeConfianza": false,
-      "puesto": {
-        "id": 11128,
-        "puestoId": "00007",
-        "nombre": "Regidor",
-        "empresaId": "99113",
-        "fechaAlta": "2019-01-01T00:00:00+01:00",
-        "fechaBaja": null,
-        "rowVersion": "8D8FD56BFD139A0",
-        "unidadesOrganizativas": [
-          {
-            "esJefePrincipal": false,
-            "esPuesto": true,
-            "fechaCreacion": "2000-01-01T00:00:00+01:00",
-            "id": 18786,
-            "nombre": "Regidor",
-            "profundidad": 0,
-            "rowVersion": "8D8CDAF415B5280",
-            "tipoJefe": "HijosYHermanos",
-            "unidadOrganizativaId": "00015",
-            "empresaId": "99113",
-            "codigoFormal": "01",
-            "codigoFormalNumerico": 1,
-            "state": 0
-          }
-        ],
-        "motivoAmortizacion": null
-      },
-      "puestoTipo": {
-        "id": 478,
-        "puestoTipoId": "88867",
-        "nombre": "Regidorsssssasdasd",
-        "rowVersion": "8D90BD0958FD3D0"
-      },
       "puestoId": "00007",
       "puestoIdOficial": null,
-      "puestoTipoId": "88867",
-      "reservadoNacionales": false,
-      "retribucion": 16071.44,
-      "retribucionAnualGrupo": 14572.68,
-      "retribucionExtraDiciembreGrupo": 749.38,
-      "retribucionExtraJunioGrupo": 749.38,
-      "rowVersion": "8D900121A887E40",
-      "rutaUnidadOrganizativa": [
-        "Ajuntament",
-        "Àrea de urbanisme i Habitatge",
-        "Actuacions Públiques i Serveis",
-        "Regidor"
-      ],
-      "singularizado": false,
-      "subEscala": null,
       "tipoVinculo": {
-        "tipoVinculoId": "F",
-        "nombre": "Funcionario",
-        "asimilado": "F",
-        "id": 3,
-        "rowVersion": "8D88013FA930C00"
+        "nombre": "Funcionario"
       },
-      "unidadOrganizativaId": "00015",
-      "versionId": 3,
-      "unidadOrganizativa": {
-        "camino": "00001>00008>00069>00015",
-        "esJefePrincipal": false,
-        "esPuesto": true,
-        "fechaCreacion": "2000-01-01T00:00:00+01:00",
-        "id": 18786,
-        "idUnidadOrganizativaPadre": 18812,
-        "nombre": "Regidor",
-        "organigrama": {
-          "id": 420,
-          "nombre": "Grupo Castilla (No tocar)",
-          "organigramaId": "99113",
-          "rowVersion": "8D903F4084A5AB0",
-          "uniqueIdentifier": "c75306af-3edb-43da-a913-3a96233b8ca2"
-        },
-        "profundidad": 3,
-        "recursoIcono": "ZIC_Seccion_L",
-        "rowVersion": "8D8CDAF415B5280",
-        "rutaUnidadOrganizativa": [
-          "Ajuntament",
-          "Àrea de urbanisme i Habitatge",
-          "Actuacions Públiques i Serveis",
-          "Regidor"
-        ],
-        "tipoJefe": "HijosYHermanos",
-        "unidadOrganizativaId": "00015",
-        "unidadOrganizativaPadreId": "00069",
-        "empresaId": "99113",
-        "categoria": {
-          "id": 14,
-          "categoriaNivel": "007",
-          "nombre": "Puesto",
-          "esPuesto": true,
-          "recursoIcono": "ZIC_Seccion_L",
-          "nDigitos": 2,
-          "sinFormato": true,
-          "tipoPrint": "1",
-          "rowVersion": "8D917491E2812B0"
-        },
-        "codigoFormal": "01",
-        "codigoFormalNumerico": 1,
-        "state": 0
+      "puestoTipo": {
+        "nombre": "Ayuntamiento"
       },
-      "customFieldValue": [],
-      "state": 0
+      "catalogo": {
+        "nombre": "RPT"
+      },
+      "adscripcion": null,
+      "grupo1Id": "A1",
+      "grupo2Id": null,
+      "escala": null,
+      "disponibilidadPlena": false,
+      "fechaVigenciaInicio": "2021-01-19T23:00:00.000Z"
     },
     {
       "adscripcion": {
@@ -80324,6 +79863,124 @@
       "disponibilidadPlena": true,
       "fechaVigenciaInicio": "2021-02-28T23:00:00.000Z",
       "id": 16108
+    },
+    {
+      "puestoId": "0002",
+      "puestoIdOficial": "444",
+      "tipoVinculoNombre": null,
+      "puestoTipoNombre": null,
+      "catalogoNombre": null,
+      "adscripcionNombre": null,
+      "grupo1Id": null,
+      "grupo2Id": null,
+      "escalaNombre": null,
+      "disponibilidadPlena": null,
+      "fechaVigenciaInicio": null,
+      "id": 16109
+    },
+    {
+      "id": 16110,
+      "puestoId": "00008",
+      "puestoIdOficial": null,
+      "tipoVinculo": {
+        "nombre": "Funcionario"
+      },
+      "puestoTipo": null,
+      "catalogo": null,
+      "adscripcion": null,
+      "grupo1Id": null,
+      "grupo2Id": null,
+      "escala": null,
+      "disponibilidadPlena": null,
+      "fechaVigenciaInicio": "1970-01-01T00:00:00.000Z"
+    },
+    {
+      "id": 16111,
+      "puestoId": "000005",
+      "puestoIdOficial": "",
+      "tipoVinculo": {
+        "nombre": "funcionario"
+      },
+      "puestoTipo": "",
+      "catalogo": "",
+      "adscripcion": "",
+      "grupo1Id": "",
+      "grupo2Id": "",
+      "escala": "",
+      "disponibilidadPlena": false,
+      "fechaVigenciaInicio": "2021-06-10T10:43:57.453Z"
+    },
+    {
+      "id": 16112,
+      "puestoId": 0,
+      "puestoIdOficial": "00159",
+      "tipoVinculo": {
+        "nombre": "Funcionario"
+      },
+      "puestoTipo": {
+        "nombre": "Ajuntament"
+      },
+      "catalogo": {
+        "nombre": "RPT"
+      },
+      "adscripcion": {
+        "nombre": "Admins"
+      },
+      "grupo1Id": "A1",
+      "grupo2Id": "C2",
+      "escala": {
+        "nombre": "Administración"
+      },
+      "disponibilidadPlena": false,
+      "fechaVigenciaInicio": "2021-06-10T11:13:52.554Z"
+    },
+    {
+      "id": 16113,
+      "puestoId": "01",
+      "puestoIdOficial": "",
+      "tipoVinculo": {
+        "nombre": null
+      },
+      "puestoTipo": {
+        "nombre": null
+      },
+      "catalogo": {
+        "nombre": null
+      },
+      "adscripcion": {
+        "nombre": null
+      },
+      "grupo1Id": "",
+      "grupo2Id": "",
+      "escala": {
+        "nombre": "Administración"
+      },
+      "disponibilidadPlena": true,
+      "fechaVigenciaInicio": "2021-06-10T11:22:21.448Z"
+    },
+    {
+      "id": 16114,
+      "puestoId": "0000001",
+      "puestoIdOficial": "00159",
+      "tipoVinculo": {
+        "nombre": "Funcionario"
+      },
+      "puestoTipo": {
+        "nombre": "Ajuntament"
+      },
+      "catalogo": {
+        "nombre": "RPT"
+      },
+      "adscripcion": {
+        "nombre": null
+      },
+      "grupo1Id": "",
+      "grupo2Id": "",
+      "escala": {
+        "nombre": "Admin."
+      },
+      "disponibilidadPlena": true,
+      "fechaVigenciaInicio": "2021-06-02T06:00:49.366Z"
     }
   ],
   "comments": [],

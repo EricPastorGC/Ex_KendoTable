@@ -21,9 +21,9 @@ export class ApiService {
 
   getData(): Observable<Puesto[]> {
     return this.http.get(localUrl).pipe(
-      map((data: Puesto[]) =>
+      map((data: any[]) =>
         data.map(
-          (item: Puesto) =>
+          (item: any) =>
             new Puesto(item.id, item.puestoId, item.puestoIdOficial, item.tipoVinculo, item.puestoTipo,
               item.catalogo, item.adscripcion, item.grupo1Id, item.grupo2Id, item.escala,
               item.disponibilidadPlena, new Date(item.fechaVigenciaInicio))

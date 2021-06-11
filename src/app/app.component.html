@@ -23,25 +23,30 @@
 
     <kendo-grid-column media="xs" title="Puestos">
       <ng-template kendoGridCellTemplate let-dataItem="dataItem">
-        <!-- template for mobile -->
         <h4 [class.discontinued]="dataItem.Discontinued">
           {{ dataItem.puestoId }}
         </h4>
-        <dl>
-          <dt>Código oficial</dt>
-          <dd>{{ dataItem.puestoIdOficial }}</dd>
+        <div>
+          <dl>
+            <dt>Código oficial</dt>
+            <dd>{{ dataItem.puestoIdOficial }}</dd>
 
-          <dt>Denominación</dt>
-          <dd>{{ dataItem.puestoTipo?.nombre }}</dd>
+            <dt>Denominación</dt>
+            <dd>{{ dataItem.puestoTipo?.nombre }}</dd>
 
-          <dt>Inicio Fecha Vigencia</dt>
-          <dd>{{ dataItem.fechaVigenciaInicio | date }}</dd>
+            <dt>Inicio Fecha Vigencia</dt>
+            <dd>{{ dataItem.fechaVigenciaInicio | date }}</dd>
 
-          <dt>Disponibilidad</dt>
-          <dd><input type="checkbox" [checked]="dataItem.disponibilidadPlena" disabled /></dd>
-        </dl>
+            <dt>Disponibilidad</dt>
+            <dd><input type="checkbox" [checked]="dataItem.disponibilidadPlena" disabled /></dd>
+          </dl>
+        </div>
+
       </ng-template>
+
+
     </kendo-grid-column>
+
 
     <ng-template kendoGridToolbarTemplate>
       <div kendoGridAddCommand class="k-button k-bare">
@@ -87,35 +92,19 @@
     </kendo-grid-column>
     <kendo-grid-column field="puestoIdOficial" title="Código oficial" [width]="100" media="md">
     </kendo-grid-column>
-    <kendo-grid-column field="tipoVinculoNombre" title="TP" [width]="100" media="md">
-      <ng-template kendoGridCellTemplate let-dataItem>
-        {{ dataItem.tipoVinculo?.nombre }}
-      </ng-template>
+    <kendo-grid-column field='tipoVinculo.nombre' title="TP" [width]="100" media="md">
     </kendo-grid-column>
-    <kendo-grid-column field="puestoTipoNombre" title="Denominación" [width]="200" media="md">
-      <ng-template kendoGridCellTemplate let-dataItem>
-        {{ dataItem.puestoTipo?.nombre }}
-      </ng-template>
-
+    <kendo-grid-column field="puestoTipo.nombre" title="Denominación" [width]="200" media="md">
     </kendo-grid-column>
-    <kendo-grid-column field="catalogoNombre" title="Catálogo" [width]="200" media="md">
-      <ng-template kendoGridCellTemplate let-dataItem>
-        {{ dataItem.catalogo?.nombre }}
-      </ng-template>
+    <kendo-grid-column field="catalogo.nombre" title="Catálogo" [width]="200" media="md">
     </kendo-grid-column>
-    <kendo-grid-column field="adscripcionNombre" title="Adscripción administración" [width]="200" media="md">
-      <ng-template kendoGridCellTemplate let-dataItem>
-        {{ dataItem.adscripcion?.nombre }}
-      </ng-template>
+    <kendo-grid-column field="adscripcion.nombre" title="Adscripción administración" [width]="200" media="md">
     </kendo-grid-column>
     <kendo-grid-column field="grupo1Id" title="G1" [width]="80" media="md">
     </kendo-grid-column>
     <kendo-grid-column field="grupo2Id" title="G2" [width]="80" media="md">
     </kendo-grid-column>
-    <kendo-grid-column field="escalaNombre" title="Escala" [width]="400" media="md">
-      <ng-template kendoGridCellTemplate let-dataItem>
-        {{ dataItem.escala?.nombre }}
-      </ng-template>
+    <kendo-grid-column field="escala.nombre" title="Escala" [width]="400" media="md">
     </kendo-grid-column>
     <kendo-grid-column type="checkbox" field="disponibilidadPlena" title="Disponibilidad" [width]="80" filter="boolean"
       media="md" editor="boolean">
