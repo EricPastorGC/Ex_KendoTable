@@ -23,28 +23,86 @@
 
     <kendo-grid-column media="xs" title="Puestos">
       <ng-template kendoGridCellTemplate let-dataItem="dataItem">
-        <h4 [class.discontinued]="dataItem.Discontinued">
-          {{ dataItem.puestoId }}
-        </h4>
-        <div>
-          <dl>
-            <dt>Código oficial</dt>
-            <dd>{{ dataItem.puestoIdOficial }}</dd>
+        <div fxFlex=100>
+          <div fxLayout="row">
+            <div fxLayout="column" fxFlex="90" fxLayoutAlign="start">
+              <h4 [class.discontinued]="dataItem.Discontinued">
+                {{ dataItem.puestoId }}
+              </h4>
+              <dl>
+                <dt>Código oficial</dt>
+                <dd>{{ dataItem.puestoIdOficial }}</dd>
 
-            <dt>Denominación</dt>
-            <dd>{{ dataItem.puestoTipo?.nombre }}</dd>
+                <dt>Denominación</dt>
+                <dd>{{ dataItem.puestoTipo?.nombre }}</dd>
 
-            <dt>Inicio Fecha Vigencia</dt>
-            <dd>{{ dataItem.fechaVigenciaInicio | date }}</dd>
+                <dt>Inicio Fecha Vigencia</dt>
+                <dd>{{ dataItem.fechaVigenciaInicio | date }}</dd>
 
-            <dt>Disponibilidad</dt>
-            <dd><input type="checkbox" [checked]="dataItem.disponibilidadPlena" disabled /></dd>
-          </dl>
+                <dt>Disponibilidad</dt>
+                <dd><input type="checkbox" [checked]="dataItem.disponibilidadPlena" disabled /></dd>
+              </dl>
+            </div>
+            <div fxLayout="column" fxLayoutAlign="start end">
+              <span>
+                <div>
+                  <button mat-button [matMenuTriggerFor]="menu" class="k-icon k-i-more-vertical"></button>
+                  <mat-menu #menu="matMenu">
+                    <button mat-menu-item kendoGridEditCommand>Editar</button>
+                    <button mat-menu-item kendoGridRemoveCommand>Borrar</button>
+                  </mat-menu>
+                </div>
+              </span>
+            </div>
+          </div>
         </div>
-
       </ng-template>
 
+      <ng-template kendoGridEditTemplate let-isNew="isNew" let-dataItem="dataItem" let-formGroup>
+        <mat-card>
+          <mat-card-content>
+            <div fxFlex=100>
+              <div fxLayout="row-wrap">
 
+                <div fxFlex="100" fxFlex.xs="100" fxFlexAlign="end">
+                  <button kendoGridSaveCommand mat-icon-button [disabled]="formGroup?.invalid">
+                    <span class="k-icon k-i-check k-i-checkmark" matTooltip='{{ isNew ? "Add" : "Update" }}'></span>
+                  </button>
+                  <button kendoGridCancelCommand mat-icon-button>
+                    <span class="k-icon k-i-cancel" matTooltip='{{ isNew ? "Discard changes" : "Cancel" }}'></span>
+                  </button>
+                </div>
+
+                <div fxFlex="100" fxFlexAlign="start center" style=" padding:5px;">
+                  <mat-form-field style="width:100%">
+                    <input matInput [formControl]="formGroup.get('puestoIdOficial')">
+                  </mat-form-field>
+                </div>
+                <div fxFlex="100" fxFlexAlign="start center" style=" padding:5px;">
+                  <mat-form-field>
+                    <input matInput [formControl]="formGroup.get('puestoTipo.nombre')">
+                  </mat-form-field>
+                </div>
+
+              </div>
+              <div fxLayout="row">
+                <div fxFlexAlign="start center" style=" padding:5px 0px 5px 50px;">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </div>
+                <div fxFlexAlign="start center" style=" padding:15px;">
+                  <input matInput [matDatepicker]="picker" [formControl]="formGroup.get('fechaVigenciaInicio')">
+                </div>
+                <div fxFlexAlign="start center" style=" padding:15px;">
+                  <mat-slide-toggle [checked]="dataItem.disponibilidadPlena" labelPosition="after"
+                    [formControl]="formGroup.get('disponibilidadPlena')">
+                  </mat-slide-toggle>
+                </div>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </ng-template>
     </kendo-grid-column>
 
 
@@ -117,12 +175,6 @@
       <ng-template kendoGridCellTemplate let-dataItem>
         {{dataItem.fechaVigenciaInicio | date}}
       </ng-template>
-    </kendo-grid-column>
-    <kendo-grid-column field="escala.nombre" title="Escala" [width]="400" media="md">
-    </kendo-grid-column>
-    <kendo-grid-column field="escala.nombre" title="Escala" [width]="400" media="md">
-    </kendo-grid-column>
-    <kendo-grid-column field="escala.nombre" title="Escala" [width]="400" media="md">
     </kendo-grid-column>
     <kendo-grid-excel fileName="Puestos.xlsx"></kendo-grid-excel>
   </kendo-grid>

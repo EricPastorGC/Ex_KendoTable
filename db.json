@@ -79901,38 +79901,22 @@
       "tipoVinculo": {
         "nombre": "funcionario"
       },
-      "puestoTipo": "",
-      "catalogo": "",
-      "adscripcion": "",
-      "grupo1Id": "",
-      "grupo2Id": "",
-      "escala": "",
-      "disponibilidadPlena": false,
-      "fechaVigenciaInicio": "2021-06-10T10:43:57.453Z"
-    },
-    {
-      "id": 16112,
-      "puestoId": 0,
-      "puestoIdOficial": "00159",
-      "tipoVinculo": {
-        "nombre": "Funcionario"
-      },
       "puestoTipo": {
-        "nombre": "Ajuntament"
+        "nombre": null
       },
       "catalogo": {
-        "nombre": "RPT"
+        "nombre": null
       },
       "adscripcion": {
-        "nombre": "Admins"
+        "nombre": null
       },
-      "grupo1Id": "A1",
-      "grupo2Id": "C2",
+      "grupo1Id": "",
+      "grupo2Id": "",
       "escala": {
-        "nombre": "Administración"
+        "nombre": null
       },
-      "disponibilidadPlena": false,
-      "fechaVigenciaInicio": "2021-06-10T11:13:52.554Z"
+      "disponibilidadPlena": true,
+      "fechaVigenciaInicio": "2021-06-01T22:00:00.000Z"
     },
     {
       "id": 16113,
@@ -79957,30 +79941,6 @@
       },
       "disponibilidadPlena": true,
       "fechaVigenciaInicio": "2021-06-10T11:22:21.448Z"
-    },
-    {
-      "id": 16114,
-      "puestoId": "0000001",
-      "puestoIdOficial": "00159",
-      "tipoVinculo": {
-        "nombre": "Funcionario"
-      },
-      "puestoTipo": {
-        "nombre": "Ajuntament"
-      },
-      "catalogo": {
-        "nombre": "RPT"
-      },
-      "adscripcion": {
-        "nombre": null
-      },
-      "grupo1Id": "",
-      "grupo2Id": "",
-      "escala": {
-        "nombre": "Admin."
-      },
-      "disponibilidadPlena": true,
-      "fechaVigenciaInicio": "2021-06-02T06:00:49.366Z"
     }
   ],
   "comments": [],
