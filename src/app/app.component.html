@@ -75,12 +75,12 @@
 
                 <div fxFlex="100" fxFlexAlign="start center" style=" padding:5px;">
                   <mat-form-field style="width:100%">
-                    <input matInput [formControl]="formGroup.get('puestoIdOficial')">
+                    <input matInput [formControl]="formGroup.get('puestoIdOficial')" placeholder="{{'Código oficial'}}">
                   </mat-form-field>
                 </div>
                 <div fxFlex="100" fxFlexAlign="start center" style=" padding:5px;">
                   <mat-form-field>
-                    <input matInput [formControl]="formGroup.get('puestoTipo.nombre')">
+                    <input matInput [formControl]="formGroup.get('puestoTipo.nombre')" placeholder="{{'Denominación'}}">
                   </mat-form-field>
                 </div>
 
@@ -96,6 +96,7 @@
                 <div fxFlexAlign="start center" style=" padding:15px;">
                   <mat-slide-toggle [checked]="dataItem.disponibilidadPlena" labelPosition="after"
                     [formControl]="formGroup.get('disponibilidadPlena')">
+                    <span>Disponibilidad</span>
                   </mat-slide-toggle>
                 </div>
               </div>
